@@ -27,7 +27,7 @@ First of all, install the dependencies to run this boilerplate.
 
 ```sh
 # Clone this repository
-$ git clone git@github.com:frontendbr/eventos.git
+$ git clone git@github.com:LFeh/kratos-boilerplate.git
 $ cd eventos
 
 # install dependencies
