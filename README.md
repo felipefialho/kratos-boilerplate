@@ -28,13 +28,14 @@ First of all, install the dependencies to run this boilerplate.
 ```sh
 # Clone this repository
 $ git clone git@github.com:LFeh/kratos-boilerplate.git
-$ cd eventos
+$ cd kratos-boilerplate
+
+# install gulp globally
+$ npm install -g gulp
 
 # install dependencies
 $ npm install
 
-# install gulp globally
-$ npm install -g gulp
 ```
 
 With the commands above, you have everything to start.
