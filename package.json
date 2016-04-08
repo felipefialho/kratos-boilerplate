@@ -1,0 +1,47 @@
+{
+  "name": "kratos-boilerplate",
+  "version": "0.0.1",
+  "description": "A simple and fast boilerplate for static projects using Gulp, Jade, Stylus and PostCSS",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LFeh/kratos-boilerplate.git"
+  },
+  "scripts": {
+    "lint": "./node_modules/.bin/jscs src && ./node_modules/.bin/jshint src",
+    "fix": "./node_modules/.bin/jscs src --fix",
+    "precommit": "npm run lint",
+    "prepush": "npm run lint"
+  },
+  "keywords": [
+    "boilerplate"
+  ],
+  "author": "Felipe Fialho <hi@felipefialho.com> (http://www.felipefialho.com/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LFeh/kratos-boilerplate/issues"
+  },
+  "homepage": "https://github.com/LFeh/kratos-boilerplate#readme",
+  "devDependencies": {
+    "babel": "*",
+    "babel-core": "*",
+    "babel-preset-es2015": "*",
+    "browser-sync": "*",
+    "gulp": "*",
+    "gulp-concat": "*",
+    "gulp-cssnano": "*", 
+    "gulp-group-css-media-queries": "*",
+    "gulp-imagemin": "*",
+    "gulp-jade": "*",
+    "gulp-plumber": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-stylus": "*",
+    "gulp-uglify": "*",
+    "jscs": "*",
+    "jshint": "*",
+    "lost": "*",
+    "postcss-font-magician": "*",
+    "poststylus": "*",
+    "rucksack-css": "*",
+    "rupture": "*"
+  }
+}
