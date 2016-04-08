@@ -14,6 +14,7 @@ Maybe you want to read about them:
 
 For grid system uses [Lost](https://github.com/peterramsing/lost) with some help from [Rucksack](http://simplaio.github.io/rucksack/) for animations, reset and a lot of great mixins, [Rupture](https://github.com/jenius/rupture) for responsive utilities. And [Font Magician](https://github.com/jonathantneal/postcss-font-magician/) to get the webfonts.
 
+
 ## Getting Started
 
 ### Installation
@@ -70,13 +71,15 @@ With the commands above, you have everything to start.
 
 Those folders and file will change during the project.
 
+
 ### Code Standarts
 
-This project uses [JSCS](http://jscs.info/) with [Airbnb presets](https://github.com/airbnb/javascript) and the [.editorconfig](https://github.com/frontendbr/eventos/blob/skeleton/.editorconfig) is defined to have indent_size of **4 spaces**.
+This project uses my own [Coding Style](https://github.com/LFeh/coding-style) as code reference.
 
-This project also uses [Husky](https://github.com/typicode/husky) to prevent commit and push messy and wrong code. Please, don't be stupid, fix all errors before commit and push =D
+This project also uses [Husky](https://github.com/typicode/husky) to prevent commit and push messy and wrong code.
 
 To help you, this project has a `npm run fix` command to fix all jscs errors.
+
 
 ### Tasks
 
