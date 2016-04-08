@@ -4,7 +4,7 @@
 
 # Kratos Boilerplate
 
-This projects uses Jade, Stylus, Gulp and Browsersync.
+This project uses Jade, Stylus, Gulp and Browsersync.
 
 Maybe you want to read about them:
 - [GulpJS](http://gulpjs.com/)
