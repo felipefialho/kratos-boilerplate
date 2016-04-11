@@ -21,7 +21,7 @@ const srcPaths = {
   js: 'src/js/**/*.js',
   css: 'src/styl/**/*.styl',
   mainStyl: 'src/styl/style.styl',
-  jade: 'src/templates/*.jade',
+  jade: 'src/jade/*.jade',
   img: 'src/img/**/*'
 };
 
