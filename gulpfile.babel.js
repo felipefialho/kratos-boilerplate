@@ -28,7 +28,10 @@ const srcPaths = {
   icons: 'src/svg/icons/*',
   svg: 'src/svg/', 
   jade: 'src/jade/*.jade', 
-  img: 'src/img/**/*'
+  img: 'src/img/**/*',
+  vendors: [
+      
+  ]
 };
 
 const buildPaths = {
@@ -38,6 +41,7 @@ const buildPaths = {
   jade: 'build/',
   img: 'build/img',
   svg: 'build/svg/',
+  vendors: 'src/js/_core/'
 };
  
 gulp.task('css', () => {
@@ -52,12 +56,20 @@ gulp.task('css', () => {
     .pipe(gulp.dest(buildPaths.css));
 });
 
+gulp.task('vendor', () => {
+    gulp.src(srcPaths.vendors)
+      .pipe(plumber())
+      .pipe(concat('vendors.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(buildPaths.vendors));
+});
+
 gulp.task('js', () => {
-  gulp.src(srcPaths.js)
-    .pipe(plumber())
-    .pipe(concat('main.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(buildPaths.js));
+    gulp.src(srcPaths.js)
+      .pipe(plumber())
+      .pipe(concat('main.js'))
+      .pipe(uglify())
+      .pipe(gulp.dest(buildPaths.js));
 });
 
 gulp.task('jade', () => {
