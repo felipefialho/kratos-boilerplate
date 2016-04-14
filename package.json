@@ -42,6 +42,9 @@
     "postcss-font-magician": "*",
     "poststylus": "*",
     "rucksack-css": "*",
-    "rupture": "*"
+    "rupture": "*",
+    "gulp-cheerio": "*", 
+    "gulp-svgmin": "*",
+    "gulp-svgstore": "*"
   }
 }

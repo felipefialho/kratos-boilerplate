@@ -16,12 +16,17 @@ import uglify from 'gulp-uglify';
 import jade from 'gulp-jade';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync'; 
+import svgmin from 'gulp-svgmin';
+import svgstore from 'gulp-svgstore';
+import cheerio from 'gulp-cheerio';
 
 const srcPaths = {
   js: 'src/js/**/*.js',
   css: 'src/styl/**/*.styl',
   mainStyl: 'src/styl/style.styl',
   jade: 'src/templates/*.jade',
+  icons: 'src/svg/icons/*',
+  svg: 'src/svg/',
   img: 'src/img/**/*'
 };
 
@@ -30,7 +35,8 @@ const buildPaths = {
   js: 'build/js/',
   css: 'build/css/',
   jade: 'build/',
-  img: 'build/img'
+  img: 'build/img',
+  svg: 'build/svg/',
 };
  
 gulp.task('css', () => {
@@ -69,6 +75,21 @@ gulp.task('images', () => {
         interlaced: true
     }))
     .pipe(gulp.dest(buildPaths.img));
+});
+
+gulp.task('icons', () => {
+  gulp.src(srcPaths.icons)
+    .pipe(svgmin())
+    .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
+    .pipe(cheerio({
+      run: function ($, file) {
+          $('svg').addClass('hide');
+          $('[fill]').removeAttr('fill');
+      },
+      parserOptions: { xmlMode: true }
+    }))
+    .pipe(gulp.dest(buildPaths.svg))
+    .pipe(gulp.dest(srcPaths.svg));
 });
 
 gulp.task('watch', () => {
