@@ -4,7 +4,7 @@
 
 # Kratos Boilerplate
 
-This projects uses Jade, Stylus, Gulp and Browsersync.
+This project uses Jade, Stylus, Gulp and Browsersync.
 
 Maybe you want to read about them:
 - [GulpJS](http://gulpjs.com/)
@@ -46,27 +46,25 @@ With the commands above, you have everything to start.
 ├── README.md
 ├── build
 │   ├── css
-│   │   └── main.css
-│   ├── img
-│   │   └── eventos.jpg
+│   │   └── style.css
+│   ├── img 
 │   ├── index.html
 │   └── js
 │       └── main.js
 ├── gulpfile.babel.js
 ├── package.json
 └── src
-    ├── img
-    │   └── eventos.jpg
-    ├── js
-    │   ├── main.js
+    ├── img 
+    ├── js 
     ├── styl
     │   ├── _core/*.styl
     │   ├── atoms/*.styl
     │   ├── molecules/*.styl
     │   ├── organisms/*.styl
+    │   ├── widgets/*.styl 
     │   ├── pages/*.styl 
-    │   └── main.styl
-    └── templates
+    │   └── style.styl
+    └── jade
         └── index.jade
 ```
 
