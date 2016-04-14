@@ -48,13 +48,15 @@ With the commands above, you have everything to start.
 │   ├── css
 │   │   └── style.css
 │   ├── img 
+│   ├── svg 
 │   ├── index.html
 │   └── js
-│       └── main.js
+│       └── main.js 
 ├── gulpfile.babel.js
 ├── package.json
 └── src
     ├── img 
+    ├── svg 
     ├── js 
     ├── styl
     │   ├── _core/*.styl
