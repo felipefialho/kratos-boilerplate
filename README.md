@@ -97,7 +97,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 
 ## Credits
 
-This boierplate uses as a base the awesome [Qualy Boierplate](https://github.com/Qualy-org/qualy) by [@Willian_justen](https://twitter.com/Willian_justen) :heart:
+This boilerplate uses as a base the awesome [Qualy Boilerplate](https://github.com/Qualy-org/qualy) by [@Willian_justen](https://twitter.com/Willian_justen) :heart:
 
 
 ## License
