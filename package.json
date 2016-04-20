@@ -9,8 +9,7 @@
   "scripts": {
     "lint": "./node_modules/.bin/jscs src",
     "fix": "./node_modules/.bin/jscs src --fix",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"
+    "precommit": "npm run lint"
   },
   "keywords": [
     "boilerplate"
