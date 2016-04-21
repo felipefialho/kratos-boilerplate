@@ -4,18 +4,18 @@ import gulp from 'gulp';
 import plumber from 'gulp-plumber';
 import stylus from 'gulp-stylus';
 import poststylus from 'poststylus';
-import rucksack from 'rucksack-css'; 
-import fontMagician from 'postcss-font-magician'; 
+import rucksack from 'rucksack-css';
+import fontMagician from 'postcss-font-magician';
 import gcmq from 'gulp-group-css-media-queries';
 import cssnano from 'gulp-cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import lost from 'lost';
-import rupture from 'rupture';  
+import rupture from 'rupture';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import jade from 'gulp-jade';
 import imagemin from 'gulp-imagemin';
-import browserSync from 'browser-sync'; 
+import browserSync from 'browser-sync';
 import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
@@ -23,14 +23,14 @@ import cheerio from 'gulp-cheerio';
 const srcPaths = {
   js: 'src/js/**/*.js',
   css: 'src/styl/**/*.styl',
-  mainStyl: 'src/styl/style.styl', 
+  mainStyl: 'src/styl/style.styl',
   jade: 'src/templates/*.jade',
   icons: 'src/svg/icons/*',
-  svg: 'src/svg/', 
-  jade: 'src/jade/*.jade', 
+  svg: 'src/svg/',
+  jade: 'src/jade/*.jade',
   img: 'src/img/**/*',
   vendors: [
-      
+
   ]
 };
 
@@ -43,15 +43,15 @@ const buildPaths = {
   svg: 'build/svg/',
   vendors: 'src/js/_core/'
 };
- 
+
 gulp.task('css', () => {
   gulp.src(srcPaths.mainStyl)
     .pipe(sourcemaps.init())
     .pipe(stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])]
-    })) 
+    }))
     .pipe(gcmq())
-    .pipe(cssnano()) 
+    .pipe(cssnano())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest(buildPaths.css));
 });
@@ -110,6 +110,7 @@ gulp.task('watch', () => {
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
+  gulp.watch(srcPaths.icons, ['icons']);
 });
 
 gulp.task('browser-sync', () => {
@@ -123,7 +124,7 @@ gulp.task('browser-sync', () => {
     },
   });
 });
- 
+
 gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
 gulp.task('build', ['css', 'jade', 'js', 'images']);
 
