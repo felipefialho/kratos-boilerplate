@@ -23,7 +23,7 @@ import cheerio from 'gulp-cheerio';
 const srcPaths = {
   js: 'src/js/**/*.js',
   css: 'src/styl/**/*.styl',
-  mainStyl: 'src/styl/style.styl',
+  styl: 'src/styl/style.styl',
   jade: 'src/templates/*.jade',
   icons: 'src/svg/icons/*',
   svg: 'src/svg/',
@@ -44,12 +44,18 @@ const buildPaths = {
   vendors: 'src/js/_core/'
 };
 
+function onError(err) {
+  console.log(err);
+  this.emit('end');
+}
+
 gulp.task('css', () => {
-  gulp.src(srcPaths.mainStyl)
+  gulp.src(srcPaths.styl)
     .pipe(sourcemaps.init())
     .pipe(stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])]
     }))
+    .on('error', onError)
     .pipe(gcmq())
     .pipe(cssnano())
     .pipe(sourcemaps.write())
@@ -57,25 +63,27 @@ gulp.task('css', () => {
 });
 
 gulp.task('vendor', () => {
-    gulp.src(srcPaths.vendors)
-      .pipe(plumber())
-      .pipe(concat('vendors.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(buildPaths.vendors));
+  gulp.src(srcPaths.vendors)
+    .pipe(plumber())
+    .pipe(concat('vendors.js'))
+    .pipe(uglify())
+    .pipe(gulp.dest(buildPaths.vendors));
 });
 
 gulp.task('js', () => {
-    gulp.src(srcPaths.js)
-      .pipe(plumber())
-      .pipe(concat('main.js'))
-      .pipe(uglify())
-      .pipe(gulp.dest(buildPaths.js));
+  gulp.src(srcPaths.js)
+    .pipe(plumber())
+    .pipe(concat('main.js'))
+    .pipe(uglify())
+    .on('error', onError)
+    .pipe(gulp.dest(buildPaths.js));
 });
 
 gulp.task('jade', () => {
   gulp.src(srcPaths.jade)
     .pipe(plumber())
     .pipe(jade())
+    .on('error', onError)
     .pipe(gulp.dest(buildPaths.jade));
 });
 
