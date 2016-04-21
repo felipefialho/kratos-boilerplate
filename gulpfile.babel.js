@@ -125,6 +125,6 @@ gulp.task('browser-sync', () => {
   });
 });
 
-gulp.task('default', ['css', 'jade', 'js', 'images', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'jade', 'js', 'images']);
+gulp.task('default', ['css', 'jade', 'js', 'images', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', ['css', 'jade', 'js', 'images', 'icons']);
 
