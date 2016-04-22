@@ -2,11 +2,11 @@
 <title>Style Guide</title>
 <meta charset="utf-8">
 <link href="style.css" rel="stylesheet">
-<script>examples={"base":"","target":"_self","css":["../build/css/style.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
+<script>examples={"base":"","target":"_self","css":["../build/css/*.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
 
 <header>
 	<nav>
-		<img src="mdcss-logo.png" alt="Style Guide">
+		<img src="../logo-kratos.png" alt="Style Guide">
 		
 	<ul>
 		
@@ -39,6 +39,11 @@
 					
 				</li>
 				
+				<li>
+					<a href="#typography"><span>Typography</span></a>
+					
+				</li>
+				
 	</ul>
 	
 				</li>
@@ -58,7 +63,7 @@
 		<section id="colors">
 			<h3>Colors</h3>
 			<div>
-				<h4 id="grays">Grays</h4>
+				<h6 id="grays">Grays</h6>
 <pre><code class="lang-example:color">@color: #111 @name: Gray Darker
 @color: #333 @name: Gray Dark
 @color: #666 @name: Gray
@@ -66,7 +71,7 @@
 @color: #ddd @name: Gray Lighter
 @color: #f0f0f0 @name: Gray White
 </code></pre>
-<h4 id="pallets">Pallets</h4>
+<h6 id="pallets">Pallets</h6>
 <pre><code class="lang-example:color">@color: #eade00 @name: Yellow
 @color: #3b78e7 @name: Blue
 @color: #cc0000 @name: Red
@@ -92,6 +97,9 @@
 either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 <p><button class="btn">Click</button>
 <a class="btn" href="/some-page">Some Page</a></p>
+<pre><code class="lang-html">&lt;button class=&quot;btn&quot;&gt;Click&lt;/button&gt;
+&lt;a class=&quot;btn&quot; href=&quot;/some-page&quot;&gt;Some Page&lt;/a&gt;
+</code></pre>
 
 				
 			</div>
@@ -100,19 +108,77 @@ either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 		<section id="forms">
 			<h3>Forms</h3>
 			<div>
-				<h4 id="input">Input</h4>
+				<h6 id="input">Input</h6>
 <input class="form-control" placeholder="Input example">
 
-<h4 id="select">Select</h4>
+<pre><code class="lang-html">&lt;input class=&quot;form-control&quot; placeholder=&quot;Input example&quot;&gt;
+</code></pre>
+<h6 id="select">Select</h6>
 <select class="form-control">
   <option>Select example</option>
 </select>
 
-<h4 id="label">Label</h4>
+<pre><code class="lang-html">&lt;select class=&quot;form-control&quot;&gt;
+  &lt;option&gt;Select example&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<h6 id="label">Label</h6>
 <label>Label example</label>
 
-<h4 id="legend">Legend</h4>
+<pre><code class="lang-html">&lt;label&gt;Label example&lt;/label&gt;
+</code></pre>
+<h6 id="legend">Legend</h6>
 <legend>Legend example</legend>
+
+<pre><code class="lang-html">&lt;legend&gt;Legend example&lt;/legend&gt;
+</code></pre>
+
+				
+			</div>
+		</section>
+		
+		<section id="typography">
+			<h3>Typography</h3>
+			<div>
+				<h6 id="links">Links</h6>
+<p>Lorem ipsum dolor sit amet, <a class="#">consectetur adipisicing elit</a>. Optio, beatae.</p>
+
+<pre><code class="lang-html">&lt;p&gt;Lorem ipsum dolor sit amet, &lt;a class=&quot;#&quot;&gt;consectetur adipisicing elit&lt;/a&gt;. Optio, beatae.&lt;/p&gt;
+</code></pre>
+<h6 id="headings">Headings</h6>
+<div class="content">
+  <h1>Lorem ipsum</h1>
+  <h2>Lorem ipsum</h2>
+  <h3>Lorem ipsum</h3>
+  <h4>Lorem ipsum</h4>
+  <h5>Lorem ipsum</h5>
+  <h6>Lorem ipsum</h6>
+</div>
+
+<pre><code class="lang-html">&lt;h1&gt;Lorem ipsum&lt;/h1&gt;
+&lt;h2&gt;Lorem ipsum&lt;/h2&gt;
+&lt;h3&gt;Lorem ipsum&lt;/h3&gt;
+&lt;h4&gt;Lorem ipsum&lt;/h4&gt;
+&lt;h5&gt;Lorem ipsum&lt;/h5&gt;
+&lt;h6&gt;Lorem ipsum&lt;/h6&gt;
+</code></pre>
+<h6 id="paragraph">Paragraph</h6>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore omnis consequatur eligendi.</p>
+
+<pre><code class="lang-html">&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore omnis consequatur eligendi.&lt;/p&gt;
+</code></pre>
+<h6 id="blockquote">Blockquote</h6>
+<blockquote>
+  <cite>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nesciunt laborum.</cite>
+  <footer><p>Lorem ipsum dolor sit</p></footer>
+</blockquote>
+
+<pre><code class="lang-html">&lt;blockquote&gt;
+  &lt;cite&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nesciunt laborum.&lt;/cite&gt;
+  &lt;footer&gt;&lt;p&gt;Lorem ipsum dolor sit&lt;/p&gt;&lt;/footer&gt;
+&lt;/blockquote&gt;
+</code></pre>
+
 				
 			</div>
 		</section>
@@ -120,7 +186,7 @@ either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 			</div>
 		</section>
 		
-	<footer>Last modified Friday, 22 April 2016 12:16
+	<footer>Last modified Friday, 22 April 2016 13:21
 </main>
 <script src="prism.js"></script>
 <script src="examples.js"></script>

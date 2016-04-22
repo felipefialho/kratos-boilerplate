@@ -52,21 +52,22 @@ function onError(err) {
 
 gulp.task('css', () => {
   gulp.src(srcPaths.styl)
-    .pipe(sourcemaps.init())
     .pipe(stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
       compress: false
     }))
     .on('error', onError)
     .pipe(postcss([
-      require('mdcss')({ examples: {
-        css: ['../build/css/style.css']
-      }})
+      require('mdcss')({
+        logo: '../logo-kratos.png',
+        examples: {
+          css: ['../build/css/*.css']
+        }
+      })
     ]))
     .on('error', onError)
     .pipe(gcmq())
     .pipe(cssnano())
-    .pipe(sourcemaps.write())
     .pipe(gulp.dest(buildPaths.css));
 });
 
