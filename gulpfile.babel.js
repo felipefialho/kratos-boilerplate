@@ -11,6 +11,7 @@ import cssnano from 'gulp-cssnano';
 import sourcemaps from 'gulp-sourcemaps';
 import lost from 'lost';
 import rupture from 'rupture';
+import postcss from 'gulp-postcss';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import jade from 'gulp-jade';
@@ -53,8 +54,15 @@ gulp.task('css', () => {
   gulp.src(srcPaths.styl)
     .pipe(sourcemaps.init())
     .pipe(stylus({
-      use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])]
+      use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
+      compress: false
     }))
+    .on('error', onError)
+    .pipe(postcss([
+      require('mdcss')({ examples: {
+        css: ['../build/css/style.css']
+      }})
+    ]))
     .on('error', onError)
     .pipe(gcmq())
     .pipe(cssnano())

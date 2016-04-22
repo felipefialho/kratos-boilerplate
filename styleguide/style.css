@@ -1,0 +1,651 @@
+/*---
+section: mdcss GitHub
+---
+
+<img align="right" width="96" height="96" src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" title="mdcss logo">
+
+[![NPM Version][npm-img]][npm] [![Build Status][ci-img]][ci]
+
+[mdcss GitHub] is a theme for [mdcss] based on the documentation styles seen
+across GitHub.
+
+[ci]:      https://travis-ci.org/jonathantneal/mdcss-theme-github
+[ci-img]:  https://img.shields.io/travis/jonathantneal/mdcss-theme-github.svg
+[mdcss]:   https://github.com/jonathantneal/mdcss
+[npm]:     https://www.npmjs.com/package/mdcss-theme-github
+[npm-img]: https://img.shields.io/npm/v/mdcss-theme-github.svg
+
+[mdcss GitHub]: https://github.com/jonathantneal/mdcss-theme-github
+
+*/
+
+/*---
+title:   Usage
+section: mdcss GitHub
+---
+
+Add [mdcss] and [mdcss GitHub] to your build tool:
+
+```bash
+npm install mdcss --save-dev
+npm install mdcss-theme-github --save-dev
+```
+
+Whenever [mdcss] is used, reference this theme.
+
+```js
+require('mdcss')({
+	theme: require('mdcss-theme-github')({ /​* options *​/ })
+})
+```
+
+[mdcss]:   https://github.com/jonathantneal/mdcss
+[mdcss GitHub]: https://github.com/jonathantneal/mdcss-theme-github
+
+*/
+
+/*---
+title:  Options
+section: mdcss GitHub
+---
+
+Options control the look and feel of the mdcss GitHub theme as well as any
+iframe examples that may be used.
+
+#### `title`
+
+Type: `String`  
+Default: `'Style Guide'`
+
+The page title to be used by the style guide.
+
+#### `logo`
+
+Type: `String`  
+Default: `'mdcss-logo.png'`
+
+<img src="https://jonathantneal.github.io/mdcss-theme-github/demo/mdcss-logo.png" width="96" height="96">
+
+The page logo to be used by the style guide.
+
+#### `examples.base`
+
+Type:    `String`  
+Default: `null`
+
+The base URL to use for all relative URLs contained within an example,
+including CSS and JavaScript references.
+
+#### `examples.target`
+
+Type:    `String`  
+Default: `'_self'`
+
+The frame to open example hyperlinks from within an example.
+
+#### `examples.css`
+
+Type:    `Array`  
+Default: `['style.css']`
+
+A list of CSS files to be used by examples.
+
+#### `examples.js`
+
+Type:    `Array`  
+Default: `null`
+
+A list of JavaScript files to be used by examples.
+
+#### `examples.bodyjs`
+
+Type:    `Array`  
+Default: `null`
+
+A list of JavaScript files to be used by examples, inserted after the example.
+
+#### `examples.htmlcss`
+
+Type:    `String`  
+Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto'`
+
+A string of styles applied to the `<html>` wrapping the example. These default
+styles are used to create a seamless effect with the styleguide.
+
+#### `examples.bodycss`
+
+Type:    `String`  
+Default: `'background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto'`
+
+A string of styles applied to the `<body>` wrapping the example. These default
+styles are used to create a seamless effect with the styleguide.
+
+*/
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	padding: 20px;
+}
+
+@media screen and (min-width: 640px) {
+	body {
+		display: flex;
+		padding: 30px 30px 90px;
+	}
+
+	header {
+		flex-basis: 250px;
+	}
+}
+
+nav > img {
+	height: 190px;
+	margin: 0 25px 20px;
+	width: 190px;
+}
+
+/*---
+title:   Examples
+section: Overview
+---
+
+The `example` keyword is used by code blocks to indicate that code will be
+rendered as a living example on the page.
+
+An `example:html` code block
+generates an iframe using the contents of the code block, followed by the
+original code block. For example:
+
+````css
+```example:html
+<button>This is a button</button>
+```
+````
+
+is rendered as:
+
+```example:html
+<button>This is a button</button>
+```
+
+An `example` code block generates an iframe using the contents of the code
+block without also rendering the original code block. For example:
+
+````css
+```example
+<button>This is a button</button>
+```
+````
+
+is rendered as:
+
+```example
+<button>This is a button</button>
+```
+
+*/
+
+/*---
+title:   Colors
+section: Overview
+---
+
+Color examples are generated with `example:color` code blocks. For example:
+
+````css
+```example:color
+@color: #ffffff @name: White
+@color: #f8f8f8 @name: White Smoke
+@color: #e7e7e7 @name: Whisper
+@color: #777777 @name: Grey
+@color: #565454 @name: Matterhorn
+@color: #4078c0 @name: Steel Blue
+@color: #333333 @name: Night Rider
+```
+````
+
+is rendered as:
+
+```example:color
+@color: #ffffff @name: White
+@color: #f8f8f8 @name: White Smoke
+@color: #e7e7e7 @name: Whisper
+@color: #777777 @name: Grey
+@color: #565454 @name: Matterhorn
+@color: #4078c0 @name: Steel Blue
+@color: #333333 @name: Night Rider
+```
+*/
+
+body {
+	background-color: #ffffff;
+	color: #333333;
+}
+
+pre, code {
+	background-color: rgba(0,0,0,.04);
+}
+
+pre code {
+	background-color: transparent;
+}
+
+.token.punctuation {
+	color: #333333;
+}
+
+.token.tag {
+	color: #218200;
+}
+
+.token.attr-name {
+	color: #795da3;
+}
+
+.token.attr-value {
+	color: #183691;
+}
+
+.token.function {
+	color: #0086b3;
+}
+
+.token.string {
+	color: #183691;
+}
+
+.token.comment {
+	color: #969896;
+}
+
+.colors {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.color {
+	margin-bottom: 20px;
+	vertical-align: top;
+	width: 160px;
+}
+
+.color:not(:last-child) {
+	margin-right: 40px;
+}
+
+.color-swatch {
+	border-radius: 50%;
+	box-shadow: inset 0 0 1px 0 currentColor;
+	font-weight: 700;
+	height: 160px;
+	line-height: 160px;
+	margin-bottom: 10px;
+	text-align: center;
+	width: 160px;
+}
+
+.color-property {
+	font-size: 80%;
+	font-weight: 700;
+	padding: 0 10px;
+}
+
+.color-property::before {
+	content: attr(data-name) ":\00a0";
+	display: inline-block;
+	font-weight: 300;
+	min-width: 3em;
+}
+
+/*---
+title:   Typography
+section: Overview
+---
+
+This theme uses a common Helvetica font stack with a relative line height of
+1.6 times the font size.
+
+*/
+
+body {
+	font-family: "Helvetica Neue", "Helvetica", "Segoe UI", "Arial", "freesans", sans-serif;
+	line-height: 1.6;
+}
+
+/*---
+title:   Headings
+section: Typography
+---
+
+Headings match GitHub documentation conventions.
+
+```example:html
+<h1>Heading Level 1</h1>
+<h2>Heading Level 2</h2>
+<h3>Heading Level 3</h3>
+<h4>Heading Level 4</h4>
+<h5>Heading Level 5</h5>
+<h6>Heading Level 6</h6>
+```
+*/
+
+h1 {
+	font-size: 2.25em;
+	line-height: 1.2;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 16px;
+	margin-top: 1em;
+	padding-bottom: .3em;
+}
+
+h2 {
+	font-size: 1.75em;
+	line-height: 1.225;
+	border-bottom: 1px solid #eee;
+	margin-bottom: 1rem;
+	margin-top: 1em;
+	padding-bottom: .3em;
+}
+
+h3 {
+	font-size: 1.5em;
+	line-height: 1.43;
+	margin-bottom: 1rem;
+	margin-top: 1em;
+}
+
+h4 {
+	font-size: 1.25em;
+	line-height: 1.4;
+	margin-bottom: 1rem;
+	margin-top: 1em;
+}
+
+h5, h6 {
+	font-size: 1em;
+	line-height: 1.4;
+	margin-bottom: 1rem;
+	margin-top: 1em;
+}
+
+h6 {
+	color: #777777;
+}
+
+code {
+	border-radius: 3px;
+	display: inline-block;
+	font-family: "Consolas", "Liberation Mono", "Menlo", "Courier", monospace;
+	font-size: 85%;
+	margin: -.1em 0;
+	max-width: 100%;
+	overflow: auto;
+	padding: .1em;
+	vertical-align: text-top;
+}
+
+button {
+	background-color: #eeeeee;
+	background-image: linear-gradient(#fcfcfc, #eeeeee);
+	border: 1px solid #d5d5d5;
+	border-radius: 3px;
+	color: #333333;
+	cursor: pointer;
+	display: inline-block;
+	font-size: 81.25%;
+	font-weight: bold;
+	line-height: 1.538462;
+	outline: 0;
+	padding: 6px 12px;
+	vertical-align: middle;
+	white-space: nowrap;
+}
+
+button:focus, button:hover {
+	background-color: #dddddd;
+	background-image: linear-gradient(#eeeeee, #dddddd);
+	border-color: #cccccc;
+}
+
+button:active {
+	background-color: #dcdcdc;
+	background-image: none;
+	border-color: #b5b5b5;
+	box-shadow: inset 0 2px 4px rgba(0,0,0,0.15);
+}
+
+/*---
+title:   Iconography
+section: Overview
+---
+
+This theme uses no iconography.
+
+*/
+
+/*---
+title: Layout
+---
+
+We use flex to horizontally stack the heading and main content areas.
+The navigation remains fixed while you scroll.
+
+*/
+
+@media screen and (min-width: 640px) {
+	main {
+		max-width: 50em;
+		width: calc(100% - 250px);
+	}
+}
+
+main > section {
+	margin-bottom: 80px;
+}
+
+figure,
+p {
+	margin: 0 0 1rem;
+}
+
+figure {
+	overflow: auto;
+	-webkit-overflow-scroll: touch;
+}
+
+pre {
+	margin: 0;
+	overflow: auto;
+	-webkit-overflow-scroll: touch;
+}
+
+@media screen and (min-width: 641px) {
+	pre {
+		max-width: calc(100vw - 230px - 90px);
+	}
+}
+
+pre code {
+	display: block;
+	line-height: 1.45;
+	margin: 1em;
+	white-space: pre;
+}
+
+iframe {
+	display: block;
+	border: 0;
+	height: 0;
+	margin: 0;
+	width: 100%;
+}
+
+hr {
+	background-color: #e7e7e7;
+	border: 0 none;
+	height: 4px;
+	margin: 1rem 0;
+	padding: 0;
+}
+
+a {
+	color: #4078c0;
+	cursor: pointer;
+	text-decoration: none;
+}
+
+footer {
+	color: #767676;
+	font-size: .75rem;
+}
+
+a:hover, a:active {
+	text-decoration: underline;
+}
+
+@media screen and (min-width: 640px) {
+	nav {
+		position: fixed;
+		width: calc(250px - 30px);
+	}
+}
+
+nav ul {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+
+nav > ul {
+	max-height: calc(100vh - 190px - 20px - 30px);
+	overflow-y: scroll;
+	-webkit-overflow-scrolling: touch;
+	padding-bottom: 20px;
+}
+
+nav a {
+	color: #565454;
+	display: block;
+	font-size: .875rem;
+	line-height: 1.2;
+	padding: 5px 25px;
+}
+
+nav a:hover,
+nav a:focus {
+	background-color: #f8f8f8;
+	text-decoration: none;
+}
+
+nav > ul > li {
+	margin-bottom: 20px;
+}
+
+nav > ul > li > a {
+	color: #767676;
+	font-size: .75rem;
+	font-weight: 300;
+	letter-spacing: .025em;
+	overflow: hidden;
+	text-transform: uppercase;
+	padding: 5px 25px;
+	text-overflow: ellipsis;
+}
+
+nav > ul > li > a:hover,
+nav > ul > li > a:focus {
+	color: #5f5f5f;
+}
+
+nav > ul > li > a > span {
+	box-shadow: 0 1px 0 0 rgba(0,0,0,.1);
+}
+
+/*---
+title: Visual Language
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+```html
+<form class="a-particularly-long-class-name">
+	<fieldset class="control-group">
+		<input class="control-input" type="text" value="A particularly long value for an input control">
+	</fieldset>
+</form>
+```
+
+*/
+
+/*---
+title:   Hero
+section: Visual Language
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+*/
+
+/*---
+title:   Figure
+section: Visual Language
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+*/
+
+/*---
+title:   Blockquote
+section: Visual Language
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+*/
+
+/*---
+title:   Media
+section: Visual Language
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+*/
+
+/*---
+title:   Aspect
+section: Visual Language
+order:   -1
+---
+
+This is just a sample section. Lorem ipsum dolor sit amet, consectetur
+adipisicing elit. Reiciendis asperiores temporibus beatae fugit totam pariatur,
+aliquam commodi consequuntur id error ipsam suscipit quas doloremque
+perferendis quam! Ullam, debitis ab maiores.
+
+*/
+
+:root {
+	background-color: #ffffff;
+}
