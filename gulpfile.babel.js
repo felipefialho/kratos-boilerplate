@@ -61,7 +61,7 @@ gulp.task('css', () => {
       require('mdcss')({
         logo: '../logo-kratos.png',
         examples: {
-          css: ['../build/css/*.css']
+          css: ['../build/css/style.css']
         }
       })
     ]))
