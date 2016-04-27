@@ -6,9 +6,8 @@
 // 3. Paragraph
 // 4. Bold
 // 5. Italic
-// 6. Cite
-// 7. Small
-// 8. Blockquote
+// 6. Small
+// 7. Blockquote
 //
 // ==================================================
 
@@ -19,11 +18,15 @@ section: Atoms
 
 ###### Links
 
+The `<a>` element specifies relationships between the current document and an external resource.
+
 ```example:html
 <p>Lorem ipsum dolor sit amet, <a class="#">consectetur adipisicing elit</a>. Optio, beatae.</p>
 ```
 
 ###### Headings
+
+The heading elements implement six levels of document headings, `<h1>` is the most important and `<h6>` is the least. A heading element briefly describes the topic of the section it introduces.
 
 ```example:html
 <div class="content">
@@ -38,11 +41,15 @@ section: Atoms
 
 ###### Paragraph
 
+The `<p>` element represents a paragraph of text.
+
 ```example:html
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore omnis consequatur eligendi.</p>
 ```
 
 ###### Blockquote
+
+The `<blockquote>` element indicates that the enclosed text is an extended quotation.
 
 ```example:html
 <blockquote>
@@ -81,15 +88,8 @@ h1, h2, h3, h4, h5, h6
 // 3. Paragraph
 // --------------------------------------------------
 
-p
-  margin 0 0 15px
-
-  &:last-child
-    margin-bottom 0
-
-
-.intro
-  font(h2)
+p:not(:last-child)
+  margin 0 0 $space
 
 
 
@@ -112,15 +112,7 @@ em
 
 
 //
-// 6. Cite
-// --------------------------------------------------
-
-cite
-  font-style normal
-
-
-//
-// 7. Small
+// 6. Small
 // --------------------------------------------------
 
 small
@@ -128,7 +120,7 @@ small
 
 
 //
-// 8. Blockquote
+// 7. Blockquote
 // --------------------------------------------------
 
 blockquote

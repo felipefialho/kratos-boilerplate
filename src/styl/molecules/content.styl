@@ -3,6 +3,45 @@
 //
 // ==================================================
 
+/*!---
+title:   Content
+section: Molecules
+---
+
+A block of content of project.
+
+```example:html
+<div class="content">
+  <h1>Lorem ipsum dolor</h1>
+  <h2>Lorem ipsum dolor sit amet</h2>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur consequatur, dicta, quae modi fugit nihil dolorum placeat, adipisci animi illum esse deserunt hic libero quo obcaecati, ipsum aut expedita molestiae.</p>
+  <h3>Lorem ipsum dolor sit amet</h3>
+  <ul>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+  </ul>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quos quisquam officia voluptatum voluptate! Reprehenderit officiis amet debitis, blanditiis laboriosam nulla dignissimos et incidunt quia doloremque consequatur nostrum earum tenetur?</p>
+  <h4>Lorem ipsum dolor</h4>
+  <blockquote>
+    <cite>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatum nesciunt laborum.</cite>
+    <footer><p>Lorem ipsum dolor sit</p></footer>
+  </blockquote>
+  <h5>Lorem ipsum dolor sit amet, consectetur</h5>
+  <ol>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+    <li>Lorem ipsum dolor sit</li>
+  </ol>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ducimus quos quisquam officia voluptatum voluptate! Reprehenderit officiis amet debitis, blanditiis laboriosam nulla dignissimos et incidunt quia doloremque consequatur nostrum earum tenetur?</p>
+</div>
+```
+
+
+*/
+
 .content
 
   // Types
@@ -52,17 +91,19 @@
 
   ol
     font(p1, regular, secondary)
-    margin-top 0
+    margin-top $space-md
+    margin-bottom $space
     margin-left -40px
 
-    li
+    li:not(:last-child)
       margin-bottom $space-sm
 
 
   ul
     font(p1, regular, secondary)
     margin-top $space-md
+    margin-bottom $space
+    margin-left -40px
 
-    li
+    li:not(:last-child)
       margin-bottom $space-sm
-      position relative
