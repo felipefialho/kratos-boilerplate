@@ -71,7 +71,7 @@ gulp.task('css', () => {
     .pipe(gulp.dest(buildPaths.css));
 });
 
-gulp.task('vendor', () => {
+gulp.task('vendors', () => {
   gulp.src(srcPaths.vendors)
     .pipe(plumber())
     .pipe(concat('vendors.js'))
@@ -142,6 +142,6 @@ gulp.task('browser-sync', () => {
   });
 });
 
-gulp.task('default', ['css', 'jade', 'js', 'images', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'jade', 'js', 'images', 'icons']);
+gulp.task('default', ['css', 'jade', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', ['css', 'jade', 'vendors', 'js', 'images', 'icons']);
 
