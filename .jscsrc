@@ -30,7 +30,8 @@
     "disallowSpaceBeforeComma": true,
     "disallowSpaceBeforeSemicolon": true,
     "disallowSpacesInsideTemplateStringPlaceholders": true,
-    "disallowArrayDestructuringReturn": true,
+    "disallowArrayDestructuringReturn": true, 
+    "excludeFiles": ["/**/_vendors.js"],
     "requireSpaceBeforeBlockStatements": true,
     "requireParenthesesAroundIIFE": true,
     "requireSpacesInAnonymousFunctionExpression": {
