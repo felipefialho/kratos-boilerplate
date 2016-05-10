@@ -1,4 +1,4 @@
-<p>
+<p align="center">
   <img src="https://cloud.githubusercontent.com/assets/3603793/14390922/a999424c-fd8f-11e5-8fbb-ab908a1d4740.png" width="200">
 </p>
 
@@ -47,24 +47,24 @@ With the commands above, you have everything to start.
 ├── build
 │   ├── css
 │   │   └── style.css
-│   ├── img/ 
+│   ├── img/
 │   ├── svg/
 │   └── js
-│       └── main.js 
+│       └── main.js
 │   ├── index.html
 ├── gulpfile.babel.js
 ├── package.json
 └── src
-    ├── img/ 
-    ├── svg/ 
-    ├── js/ 
+    ├── img/
+    ├── svg/
+    ├── js/
     ├── styl
     │   ├── _core/*.styl
     │   ├── atoms/*.styl
     │   ├── molecules/*.styl
     │   ├── organisms/*.styl
-    │   ├── widgets/*.styl 
-    │   ├── pages/*.styl 
+    │   ├── widgets/*.styl
+    │   ├── pages/*.styl
     │   └── style.styl
     └── jade
         └── index.jade
@@ -91,8 +91,8 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 - `gulp images`: compress image files
 - `gulp icons`: generate sprite of icons
 - `gulp browser-sync`: inicialize a server
-- `gulp watch`: call for watch files 
-- `gulp build`: run all tasks  
+- `gulp watch`: call for watch files
+- `gulp build`: run all tasks
 
 
 ## Credits
