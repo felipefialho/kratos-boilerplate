@@ -47,17 +47,17 @@ With the commands above, you have everything to start.
 ├── build
 │   ├── css
 │   │   └── style.css
-│   ├── img 
-│   ├── svg 
-│   ├── index.html
+│   ├── img/ 
+│   ├── svg/
 │   └── js
 │       └── main.js 
+│   ├── index.html
 ├── gulpfile.babel.js
 ├── package.json
 └── src
-    ├── img 
-    ├── svg 
-    ├── js 
+    ├── img/ 
+    ├── svg/ 
+    ├── js/ 
     ├── styl
     │   ├── _core/*.styl
     │   ├── atoms/*.styl
