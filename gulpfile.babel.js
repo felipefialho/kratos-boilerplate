@@ -122,7 +122,7 @@ gulp.task('icons', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(srcPaths.jade, ['jade']);
+  gulp.watch(srcPaths.jade, {debounceDelay: 300}, ['jade']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
