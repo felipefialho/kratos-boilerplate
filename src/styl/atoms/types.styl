@@ -68,7 +68,7 @@ a
   color inherit
   text-decoration none
 
-  p &
+  p
     color $brand-primary
 
   p &:hover
@@ -89,10 +89,11 @@ h1, h2, h3, h4, h5, h6
 // --------------------------------------------------
 
 p
-  margin 0
+  margin 0 0 $space
 
-  &:not(:last-child)
-    margin-bottom $space
+  &:last-child
+    margin-bottom 0
+
 
 
 //
