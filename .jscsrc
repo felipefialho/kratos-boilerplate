@@ -10,7 +10,7 @@
     "disallowSpacesInCallExpression": true,
     "disallowSpacesInsideArrayBrackets": true,
     "disallowSpacesInsideParentheses": true,
-    "disallowQuotedKeysInObjects": true,
+    "disallowQuotedKeysInObjects": false,
     "disallowSpaceAfterObjectKeys": true,
     "disallowSpaceAfterPrefixUnaryOperators": true,
     "disallowSpaceBeforePostfixUnaryOperators": true,
@@ -30,8 +30,14 @@
     "disallowSpaceBeforeComma": true,
     "disallowSpaceBeforeSemicolon": true,
     "disallowSpacesInsideTemplateStringPlaceholders": true,
-    "disallowArrayDestructuringReturn": true, 
-    "excludeFiles": ["/**/_vendors.js"],
+    "disallowArrayDestructuringReturn": true,
+    "excludeFiles": [
+      "./**/_vendors.js",
+      "./build/**",
+      "./node_modules/**",
+      "./styleguide/**"
+    ],
+    "maxErrors": 10,
     "requireSpaceBeforeBlockStatements": true,
     "requireParenthesesAroundIIFE": true,
     "requireSpacesInAnonymousFunctionExpression": {

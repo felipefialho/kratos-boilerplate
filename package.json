@@ -7,8 +7,8 @@
     "url": "git+https://github.com/LFeh/kratos-boilerplate.git"
   },
   "scripts": {
-    "lint": "./node_modules/.bin/jscs src",
-    "fix": "./node_modules/.bin/jscs src --fix",
+    "lint": "./node_modules/.bin/jscs ./",
+    "fix": "./node_modules/.bin/jscs ./ --fix",
     "precommit": "npm run lint"
   },
   "keywords": [

@@ -103,26 +103,27 @@ gulp.task('images', () => {
         optimizationLevel: 3,
         progressive: true,
         interlaced: true
-    }))
+      }))
     .pipe(gulp.dest(buildPaths.img));
 });
 
 gulp.task('icons', () => {
   gulp.src(srcPaths.icons)
     .pipe(svgmin())
-    .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true}))
+    .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
     .pipe(cheerio({
       run: function ($, file) {
           $('svg').addClass('hide');
           $('[fill]').removeAttr('fill');
-      },
+        },
+
       parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest(buildPaths.svg)) 
+    .pipe(gulp.dest(buildPaths.svg));
 });
 
 gulp.task('watch', () => {
-  gulp.watch(srcPaths.jade, {debounceDelay: 300}, ['jade']);
+  gulp.watch(srcPaths.jade, { debounceDelay: 300 }, ['jade']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
@@ -139,6 +140,7 @@ gulp.task('browser-sync', () => {
       baseDir: './build/'
     },
   });
+
 });
 
 gulp.task('default', ['css', 'jade', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
