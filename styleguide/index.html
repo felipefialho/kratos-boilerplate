@@ -1,82 +1,74 @@
 <!doctype html>
 <title>Style Guide</title>
 <meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="style.css" rel="stylesheet">
 <script>examples={"base":"","target":"_self","css":["../build/css/style.css"],"js":[],"bodyjs":[],"htmlcss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:0;position:static;width:auto","bodycss":"background:none;border:0;clip:auto;display:block;height:auto;margin:0;padding:16px;position:static;width:auto"};</script>
 
-<header>
-	<nav>
-		<img src="../logo-kratos.png" alt="Style Guide">
-		
-	<ul>
-		
-				<li>
-					<a href="#core"><span>Core</span></a>
-					
-	<ul>
-		
-				<li>
-					<a href="#colors"><span>Colors</span></a>
-					
-				</li>
-				
-	</ul>
-	
-				</li>
-				
-				<li>
-					<a href="#atoms"><span>Atoms</span></a>
-					
-	<ul>
-		
-				<li>
-					<a href="#buttons"><span>Buttons</span></a>
-					
-				</li>
-				
-				<li>
-					<a href="#forms"><span>Forms</span></a>
-					
-				</li>
-				
-				<li>
-					<a href="#typography"><span>Typography</span></a>
-					
-				</li>
-				
-	</ul>
-	
-				</li>
-				
-				<li>
-					<a href="#molecules"><span>Molecules</span></a>
-					
-	<ul>
-		
-				<li>
-					<a href="#content"><span>Content</span></a>
-					
-				</li>
-				
-	</ul>
-	
-				</li>
-				
-	</ul>
-	
-	</nav>
+
+<header class="masthead">
+  <div class="container">
+    <a href="/" class="masthead-logo">
+      <img src="../logo-kratos.png" alt="Style Guide" height="32"> Style Guide
+    </a>
+    <nav class="masthead-nav">
+      <!-- TODO Add Page Navigation -->
+    </nav>
+  </div>
 </header>
 
-<main>
+<div class="container">
+  <div class="columns docs-layout">
+    <div class="one-fourth column">
+      <nav class="menu docs-menu">
+        
+		
+        <a class="menu-heading" href="#core"><span>Core</span></a>
+        
+		
+        <a class="menu-item" href="#colors"><span>Colors</span></a>
+        
+				
 	
+				
+        <a class="menu-heading" href="#atoms"><span>Atoms</span></a>
+        
+		
+        <a class="menu-item" href="#buttons"><span>Buttons</span></a>
+        
+				
+        <a class="menu-item" href="#typography"><span>Typography</span></a>
+        
+				
+	
+				
+        <a class="menu-heading" href="#molecules"><span>Molecules</span></a>
+        
+		
+        <a class="menu-item" href="#content"><span>Content</span></a>
+        
+				
+        <a class="menu-item" href="#forms"><span>Forms</span></a>
+        
+				
+	
+				
+	
+      </nav>
+    </div>
+
+    <main class="three-fourths column markdown-body">
+      
 		<section id="core">
-			<h2>Core</h2>
-			<div>
+			<h1 class="page-title">Core</h1>
+
+			<div class="markdown-body">
 				
 				
 		<section id="colors">
-			<h3>Colors</h3>
-			<div>
+			<h2 class="page-title">Colors</h2>
+
+			<div class="markdown-body">
 				<h6 id="grays">Grays</h6>
 <pre><code class="lang-example:color">@color: #111 @name: Gray Darker
 @color: #333 @name: Gray Dark
@@ -100,13 +92,15 @@
 		</section>
 		
 		<section id="atoms">
-			<h2>Atoms</h2>
-			<div>
+			<h1 class="page-title">Atoms</h1>
+
+			<div class="markdown-body">
 				
 				
 		<section id="buttons">
-			<h3>Buttons</h3>
-			<div>
+			<h2 class="page-title">Buttons</h2>
+
+			<div class="markdown-body">
 				<p>Button styles can be applied to <strong>any</strong> element. Typically you&#39;ll want to use
 either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 <pre><code class="lang-example:html">&lt;button class=&quot;btn&quot;&gt;Click&lt;/button&gt;
@@ -117,36 +111,10 @@ either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 			</div>
 		</section>
 		
-		<section id="forms">
-			<h3>Forms</h3>
-			<div>
-				<p>The <code>&lt;form&gt;</code> element represents a document section that contains interactive controls to submit information.</p>
-<h6 id="input">Input</h6>
-<p>The HTML element &lt;input&lt; is used to create interactive controls for web-based forms in order to accept data from the user.</p>
-<pre><code class="lang-example:html">&lt;input class=&quot;form-control&quot; placeholder=&quot;Input example&quot;&gt;
-</code></pre>
-<h6 id="select">Select</h6>
-<p>The <code>&lt;select&gt;</code> element represents a control that presents a menu of options.</p>
-<pre><code class="lang-example:html">&lt;select class=&quot;form-control&quot;&gt;
-  &lt;option&gt;Select example&lt;/option&gt;
-&lt;/select&gt;
-</code></pre>
-<h6 id="label">Label</h6>
-<p>The <code>&lt;label&gt;</code> represents a caption for an item in a user interface.</p>
-<pre><code class="lang-example:html">&lt;label&gt;Label example&lt;/label&gt;
-</code></pre>
-<h6 id="legend">Legend</h6>
-<p>The <code>&lt;legend&gt;</code> represents a caption for the content of its parent.</p>
-<pre><code class="lang-example:html">&lt;legend&gt;Legend example&lt;/legend&gt;
-</code></pre>
-
-				
-			</div>
-		</section>
-		
 		<section id="typography">
-			<h3>Typography</h3>
-			<div>
+			<h2 class="page-title">Typography</h2>
+
+			<div class="markdown-body">
 				<h6 id="links">Links</h6>
 <p>The <code>&lt;a&gt;</code> element specifies relationships between the current document and an external resource.</p>
 <pre><code class="lang-example:html">&lt;p&gt;Lorem ipsum dolor sit amet, &lt;a class=&quot;#&quot;&gt;consectetur adipisicing elit&lt;/a&gt;. Optio, beatae.&lt;/p&gt;
@@ -182,13 +150,15 @@ either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 		</section>
 		
 		<section id="molecules">
-			<h2>Molecules</h2>
-			<div>
+			<h1 class="page-title">Molecules</h1>
+
+			<div class="markdown-body">
 				
 				
 		<section id="content">
-			<h3>Content</h3>
-			<div>
+			<h2 class="page-title">Content</h2>
+
+			<div class="markdown-body">
 				<p>A block of content of project.</p>
 <pre><code class="lang-example:html">&lt;div class=&quot;content&quot;&gt;
   &lt;h1&gt;Lorem ipsum dolor&lt;/h1&gt;
@@ -222,11 +192,43 @@ either a <code>&lt;button&gt;</code> or an <code>&lt;a&gt;</code> element:</p>
 			</div>
 		</section>
 		
+		<section id="forms">
+			<h2 class="page-title">Forms</h2>
+
+			<div class="markdown-body">
+				<p>The <code>&lt;form&gt;</code> element represents a document section that contains interactive controls to submit information.</p>
+<h6 id="input">Input</h6>
+<p>The HTML element &lt;input&lt; is used to create interactive controls for web-based forms in order to accept data from the user.</p>
+<pre><code class="lang-example:html">&lt;input class=&quot;form-control&quot; placeholder=&quot;Input example&quot;&gt;
+</code></pre>
+<h6 id="select">Select</h6>
+<p>The <code>&lt;select&gt;</code> element represents a control that presents a menu of options.</p>
+<pre><code class="lang-example:html">&lt;select class=&quot;form-control&quot;&gt;
+  &lt;option&gt;Select example&lt;/option&gt;
+&lt;/select&gt;
+</code></pre>
+<h6 id="label">Label</h6>
+<p>The <code>&lt;label&gt;</code> represents a caption for an item in a user interface.</p>
+<pre><code class="lang-example:html">&lt;label&gt;Label example&lt;/label&gt;
+</code></pre>
+<h6 id="legend">Legend</h6>
+<p>The <code>&lt;legend&gt;</code> represents a caption for the content of its parent.</p>
+<pre><code class="lang-example:html">&lt;legend&gt;Legend example&lt;/legend&gt;
+</code></pre>
+
+				
 			</div>
 		</section>
 		
-	<footer>Last modified Wednesday, 27 April 2016 17:37
-</main>
+			</div>
+		</section>
+		
+    </main>
+  </div>
+  <footer class="footer">
+    Last modified Tuesday, 14 June 2016 23:38
+  </footer>
+</div>
 <script src="prism.js"></script>
 <script src="examples.js"></script>
 <script src="script.js"></script>

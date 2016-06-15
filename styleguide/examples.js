@@ -1,141 +1,139 @@
 examples.lang = {
-  color: function (pre, value) {
-    var colors = pre.parentNode.insertBefore(document.createElement('div'), pre);
-    var lines = value.trim().split(/\n+/);
+	color: function (pre, value) {
+		var colors = pre.parentNode.insertBefore(document.createElement('div'), pre);
+		var lines = value.trim().split(/\n+/);
 
-    colors.className = 'colors';
+		colors.className = 'colors';
 
-    lines.map(parseLine).map(parseColor).forEach(colors.appendChild, colors);
+		lines.map(parseLine).map(parseColor).forEach(colors.appendChild, colors);
 
-    function parseLine(line) {
-      line = line.trim();
+		function parseLine(line) {
+			line = line.trim();
 
-      var color = {};
-      var match = /@([^:]+):\s*(.+?)(?=\s+@|$)/g;
-      var prop;
+			var color = {};
+			var match = /@([^:]+):\s*(.+?)(?=\s+@|$)/g;
+			var prop;
 
-      while (prop = match.exec(line)) color[prop[1]] = prop[2];
+			while (prop = match.exec(line)) color[prop[1]] = prop[2];
 
-      return color;
-    }
+			return color;
+		}
 
-    function parseColor(color) {
-      var colorNode = document.createElement('div');
+		function parseColor(color) {
+			var colorNode = document.createElement('div');
 
-      colorNode.className = 'color';
+			colorNode.className = 'swatch';
 
-      var swatchNode = colorNode.appendChild(document.createElement('div'));
+			colorNode.style.backgroundColor = color.color;
 
-      swatchNode.className = 'color-swatch';
+			var contrastColor = contrast(color.color);
 
-      swatchNode.style.backgroundColor = color.color;
+			colorNode.style.color = contrastColor;
 
-      var contrastColor = contrast(color.color);
+			colorNode.style.textShadow = '0 0 1px ' + (contrastColor === '#ffffff' ? '#000000' : '#ffffff');
 
-      swatchNode.style.color = contrastColor;
+			colorNode.appendChild(document.createTextNode(color.color));
 
-      swatchNode.style.textShadow = '0 0 1px ' + (contrastColor === '#ffffff' ? '#000000' : '#ffffff');
+			Object.keys(color).filter(function (key) { return key !== 'color' }).forEach(function (key) {
+				var propertyNode = colorNode.appendChild(document.createElement('div'));
 
-      swatchNode.appendChild(document.createTextNode(color.color));
+				propertyNode.className = 'color-property';
 
-      Object.keys(color).filter(function (key) { return key !== 'color'; }).forEach(function (key) {
-        var propertyNode = colorNode.appendChild(document.createElement('div'));
+				propertyNode.setAttribute('data-name', key);
 
-        propertyNode.className = 'color-property';
+				propertyNode.appendChild(document.createTextNode(color[key]));
+			});
 
-        propertyNode.setAttribute('data-name', key);
+			return colorNode;
+		}
 
-        propertyNode.appendChild(document.createTextNode(color[key]));
-      });
+		function hex2rgb(hex) {
+			var bigint = parseInt(hex.slice(1).replace(/^([0-9a-f])([0-9a-f])([0-9a-f])$/i, '$1$1$2$2$3$3'), 16);
+			var r = (bigint >> 16) & 255;
+			var g = (bigint >> 8) & 255;
+			var b = bigint & 255;
 
-      return colorNode;
-    }
+			return [r, g, b];
+		}
 
-    function hex2rgb(hex) {
-      var bigint = parseInt(hex.slice(1).replace(/^([0-9a-f])([0-9a-f])([0-9a-f])$/i, '$1$1$2$2$3$3'), 16);
-      var r = (bigint >> 16) & 255;
-      var g = (bigint >> 8) & 255;
-      var b = bigint & 255;
+		function getRGB(color) {
+			return /^#/.test(color) ? hex2rgb(color) : color.replace(/[^\d,]+/g, '').split(/,/).map(function (part) { return part * 1; });
+		}
 
-      return [r, g, b];
-    }
+		function contrast(color) {
+			var rgb = getRGB(color);
+			var o   = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000);
 
-    function getRGB(color) {
-      return /^#/.test(color) ? hex2rgb(color) : color.replace(/[^\d,]+/g, '').split(/,/).map(function (part) { return part * 1; });
-    }
+			return o <= 180 ? '#ffffff' : '#000000';
+		}
+	},
+	html: function (pre, value, conf) {
+		// get wrap
+		var wrap = pre.parentNode;
+    pre.className = 'highlight';
 
-    function contrast(color) {
-      var rgb = getRGB(color);
-      var o   = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) / 1000);
+		var iframe = wrap.insertBefore(document.createElement('iframe'), pre);
+    iframe.className  = 'docs-example clearfix';
+		var style  = iframe.style;
 
-      return o <= 180 ? '#ffffff' : '#000000';
-    }
-  },
+		// get iframe dom
+		var iwin = iframe.contentWindow;
+		var idoc = iwin.document;
 
-  html: function (pre, value, conf) {
-    // get wrap
-    var wrap = pre.parentNode;
+		// write example content to iframe
+		idoc.open();
 
-    var iframe = wrap.insertBefore(document.createElement('iframe'), pre);
-    var style  = iframe.style;
+		var html = '<base' + (
+			examples.base && ' href="' + examples.base + '"'
+		) + (
+			examples.target && ' target="' + examples.target + '"'
+		) + '>';
 
-    // get iframe dom
-    var iwin = iframe.contentWindow;
-    var idoc = iwin.document;
+		html += examples.css.map(function (css) {
+			return '<link href="' + css + '" rel="stylesheet">';
+		}).join('');
 
-    // write example content to iframe
-    idoc.open();
+		html += examples.js.map(function (js) {
+			return '<script src="' + js + '"></script>';
+		}).join('');
 
-    var html = '<base' + (
-     examples.base && ' href="' + examples.base + '"'
-    ) + (
-     examples.target && ' target="' + examples.target + '"'
-    ) + '>';
+		html += value;
 
-    html += examples.css.map(function (css) {
-      return '<link href="' + css + '" rel="stylesheet">';
-    }).join('');
+		html += examples.bodyjs.map(function (js) {
+			return '<script src="' + js + '"></script>';
+		}).join('');
 
-    html += examples.js.map(function (js) {
-      return '<script src="' + js + '"></script>';
-    }).join('');
+		idoc.write(html);
 
-    html += value;
+		idoc.close();
 
-    html += examples.bodyjs.map(function (js) {
-      return '<script src="' + js + '"></script>';
-    }).join('');
+		// add default block styles to iframe dom
+		iwin.addEventListener('load', function(){
+			idoc.documentElement.setAttribute('style', examples.htmlcss);
+			idoc.body.setAttribute('style', examples.bodycss);
+      iframe.setAttribute('class', 'docs-example clearfix');
+		})
 
-    idoc.write(html);
+		if (conf.width) style.width = String(conf.width);
 
-    idoc.close();
+		// set iframe height based on content
+		var documentElement = idoc.documentElement;
+		var scrollHeight;
 
-    // add default block styles to iframe dom
-    idoc.documentElement.setAttribute('style', examples.htmlcss);
-    idoc.body.setAttribute('style', examples.bodycss);
+		function resize() {
+			var currentScrollHeight = documentElement.scrollHeight;
 
-    if (conf.width) style.width = String(conf.width);
+			if (scrollHeight !== currentScrollHeight) {
+				scrollHeight = currentScrollHeight;
 
-    // set iframe height based on content
-    var documentElement = idoc.documentElement;
-    var scrollHeight;
+				style.height = 0;
 
-    function resize() {
-      var currentScrollHeight = documentElement.scrollHeight;
+				style.height = documentElement.scrollHeight + (iframe.offsetHeight - iwin.innerHeight) + 'px';
+			}
+		}
 
-      if (scrollHeight !== currentScrollHeight) {
-        scrollHeight = currentScrollHeight;
-
-        style.height = 0;
-
-        style.height = documentElement.scrollHeight + (iframe.offsetHeight - iwin.innerHeight) + 'px';
-      }
-    }
-
-    iwin.addEventListener('load', resize);
-
-    resize();
-
-    setInterval(resize, 334);
-  }
+    iwin.addEventListener('load', function () {
+      resize();
+    });
+	}
 };
