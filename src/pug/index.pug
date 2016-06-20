@@ -6,8 +6,15 @@ html
     meta(http-equiv='X-UA-Compatible', content='IE=edge')
     meta(name='description' content="meta desc")
     meta(name='viewport' content='width=device-width, initial-scale=1.0')
-    link(rel="stylesheet", type="text/css", href="css/style.css")
 
+    //- Essential Meta Tags for Social Media
+    //- --------------------------------------------------
+    meta(property='og:title' content='')
+    meta(property='og:description' content='')
+    meta(property='og:image' content='.jpg')
+    meta(property='og:url' content='')
+    meta(name='twitter:card' content='summary_large_image')
+ 
     //- Favicon
     //- --------------------------------------------------
     link(rel='apple-touch-icon' sizes='57x57' href='/favicon/apple-icon-57x57.png')
@@ -27,8 +34,11 @@ html
     meta(name='msapplication-TileColor' content='#ffffff')
     meta(name='msapplication-TileImage' content='/favicon/ms-icon-144x144.png')
     meta(name='theme-color' content='#ffffff')
-
-
+ 
+    //- Stylesheet
+    //- --------------------------------------------------
+    link(rel="stylesheet", type="text/css", href="css/style.css")
+        
     //- GA
     //- --------------------------------------------------
     if ((data) && (data.analytics) && (data.analytics.ga))
