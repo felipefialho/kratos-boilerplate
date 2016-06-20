@@ -1,7 +1,7 @@
 {
   "name": "kratos-boilerplate",
   "version": "0.0.1",
-  "description": "A simple and fast boilerplate for static projects using Gulp, Jade, Stylus and PostCSS",
+  "description": "A simple and fast boilerplate for static projects using Gulp, Pug, Stylus and PostCSS",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/LFeh/kratos-boilerplate.git"
