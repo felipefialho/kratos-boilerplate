@@ -4,11 +4,11 @@
 
 # Kratos Boilerplate
 
-This project uses Jade, Stylus, Gulp and Browsersync.
+This project uses Pug, Stylus, Gulp and Browsersync.
 
 Maybe you want to read about them:
 - [GulpJS](http://gulpjs.com/)
-- [Jade](http://jade-lang.com/)
+- [Pug](https://github.com/pugjs/pug)
 - [Stylus](http://learnboost.github.io/stylus/)
 - [Browsersync](https://www.browsersync.io/)
 
@@ -66,8 +66,8 @@ With the commands above, you have everything to start.
     │   ├── widgets/*.styl
     │   ├── pages/*.styl
     │   └── style.styl
-    └── jade
-        └── index.jade
+    └── pug
+        └── index.pug
 ```
 
 Those folders and file will change during the project.
@@ -86,7 +86,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 
 - `gulp`: run all tasks and initialize watch for changes and a server
 - `gulp js`: execute js files
-- `gulp jade`: compile jade files
+- `gulp html`: compile pug files
 - `gulp css`: compile stylus files
 - `gulp images`: compress image files
 - `gulp icons`: generate sprite of icons

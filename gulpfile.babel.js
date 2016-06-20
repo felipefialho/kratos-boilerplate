@@ -14,7 +14,7 @@ import rupture from 'rupture';
 import postcss from 'gulp-postcss';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
-import jade from 'gulp-jade';
+import pug from 'gulp-pug';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import svgmin from 'gulp-svgmin';
@@ -25,10 +25,9 @@ const srcPaths = {
   js: 'src/js/**/*.js',
   css: 'src/styl/**/*.styl',
   styl: 'src/styl/style.styl',
-  jade: 'src/templates/*.jade',
+  html: 'src/pug/*.pug',
   icons: 'src/svg/icons/*',
   svg: 'src/svg/',
-  jade: 'src/jade/*.jade',
   img: 'src/img/**/*',
   vendors: [
 
@@ -39,7 +38,7 @@ const buildPaths = {
   build: 'build/**/*',
   js: 'build/js/',
   css: 'build/css/',
-  jade: 'build/',
+  html: 'build/',
   img: 'build/img',
   svg: 'build/svg/',
   vendors: 'src/js/_core/'
@@ -88,12 +87,12 @@ gulp.task('js', () => {
     .pipe(gulp.dest(buildPaths.js));
 });
 
-gulp.task('jade', () => {
-  gulp.src(srcPaths.jade)
+gulp.task('html', () => {
+  gulp.src(srcPaths.html)
     .pipe(plumber())
-    .pipe(jade())
+    .pipe(pug())
     .on('error', onError)
-    .pipe(gulp.dest(buildPaths.jade));
+    .pipe(gulp.dest(buildPaths.html));
 });
 
 gulp.task('images', () => {
@@ -123,7 +122,7 @@ gulp.task('icons', () => {
 });
 
 gulp.task('watch', () => {
-  gulp.watch(srcPaths.jade, { debounceDelay: 300 }, ['jade']);
+  gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
@@ -143,6 +142,6 @@ gulp.task('browser-sync', () => {
 
 });
 
-gulp.task('default', ['css', 'jade', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'jade', 'vendors', 'js', 'images', 'icons']);
+gulp.task('default', ['css', 'html', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', ['css', 'html', 'vendors', 'js', 'images', 'icons']);
 
