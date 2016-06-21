@@ -20,6 +20,7 @@ import browserSync from 'browser-sync';
 import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
+import mdcss from 'mdcss';
 
 const srcPaths = {
   js: 'src/js/**/*.js',
@@ -57,7 +58,7 @@ gulp.task('css', () => {
     }))
     .on('error', onError)
     .pipe(postcss([
-      require('mdcss')({
+      mdcss({
         logo: '../logo-kratos.png',
         examples: {
           css: ['../build/css/style.css']
