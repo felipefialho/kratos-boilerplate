@@ -1,9 +1,18 @@
-import babel from 'rollup-plugin-babel';
+const babel = require('rollup-plugin-babel');
+const nodeResolve = require('rollup-plugin-node-resolve');
+const commonjs = require('rollup-plugin-commonjs');
 
-export default {
-    plugins: [babel({
-        exclude: 'node_modules/**',
-        babelrc: false,
-        presets: ['es2015-rollup']
-      })]
-  };
+module.exports = {
+  plugins: [
+    babel({
+      babelrc: false,
+      presets: ['es2015-rollup']
+    }),
+    nodeResolve({
+      jsnext: true
+    }),
+    commonjs({
+      include: 'node_modules/**'
+    })
+  ]
+};
