@@ -73,13 +73,18 @@ With the commands above, you have everything to start.
 Those folders and file will change during the project.
 
 
-### Code Standarts
+### Code Standards
 
 This project uses my own [Coding Style](https://github.com/LFeh/coding-style) as code reference.
 
 This project also uses [Husky](https://github.com/typicode/husky) to prevent commit and push messy and wrong code.
 
 To help you, this project has a `npm run fix` command to fix all jscs errors.
+
+
+#### Parker CSS
+
+To view a reporter of CSS files, use 'npm run reporter' command.
 
 
 ### Tasks
