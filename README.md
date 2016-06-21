@@ -84,7 +84,7 @@ To help you, this project has a `npm run fix` command to fix all jscs errors.
 
 #### Parker CSS
 
-To view a reporter of CSS files, use 'npm run reporter' command.
+To view a reporter of CSS files, use `npm run reporter` command.
 
 
 ### Tasks
