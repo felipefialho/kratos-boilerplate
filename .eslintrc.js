@@ -3,16 +3,16 @@ module.exports = {
     "browser": true,
     "es6": true,
     "jquery": true
-  },
+  }, 
+  "globals": { 
+  }, 
   "extends": "eslint:recommended",
   "parserOptions": {
     "sourceType": "module"
   },
   "rules": {
-    "indent": [
-      "error",
-      2
-    ],
+    "indent": ["error", 2 ],
+    "no-unused-vars": [1, {"vars": "local", "args": "none"}],
     "linebreak-style": 'off',
     "quotes": [
       "error",
@@ -23,4 +23,4 @@ module.exports = {
       "always"
     ]
   }
-};
+}; 
