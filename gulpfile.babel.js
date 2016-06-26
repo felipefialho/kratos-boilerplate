@@ -3,30 +3,16 @@
 import gulp from 'gulp';
 import config from './gulp.config'
 import log from './log'
-import plumber from 'gulp-plumber';
-import stylus from 'gulp-stylus';
 import poststylus from 'poststylus';
 import rucksack from 'rucksack-css';
 import fontMagician from 'postcss-font-magician';
 import gcmq from 'gulp-group-css-media-queries';
-import cssnano from 'gulp-cssnano';
-import sourcemaps from 'gulp-sourcemaps';
 import lost from 'lost';
 import rupture from 'rupture';
-import postcss from 'gulp-postcss';
-import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
-import pug from 'gulp-pug';
-import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
-import svgmin from 'gulp-svgmin';
-import svgstore from 'gulp-svgstore';
-import cheerio from 'gulp-cheerio';
 import mdcss from 'mdcss';
-import gulpLoadPlugins from 'gulp-load-plugins';
-
-var plugins = gulpLoadPlugins();
-
+import loadPlugins from 'gulp-load-plugins'
+let plugins = loadPlugins();
 
 function onError(err) {
   log(err);
@@ -35,12 +21,12 @@ function onError(err) {
 
 gulp.task('css', () => {
   gulp.src(config.source.styl)
-    .pipe(stylus({
+    .pipe(plugins.stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
       compress: false
     }))
     .on('error', onError)
-    .pipe(postcss([
+    .pipe(plugins.postcss([
       mdcss({
         logo: '../logo-kratos.png',
         examples: {
@@ -50,39 +36,39 @@ gulp.task('css', () => {
     ]))
     .on('error', onError)
     .pipe(gcmq())
-    .pipe(cssnano())
+    .pipe(plugins.cssnano())
     .pipe(gulp.dest(config.build.css));
 });
 
 gulp.task('vendors', () => {
   gulp.src(config.source.vendors)
-    .pipe(plumber())
-    .pipe(concat('vendors.js'))
-    .pipe(uglify())
+    .pipe(plugins.plumber())
+    .pipe(plugins.concat('vendors.js'))
+    .pipe(plugins.uglify())
     .pipe(gulp.dest(config.build.vendors));
 });
 
 gulp.task('js', () => {
   gulp.src(config.source.js)
-    .pipe(plumber())
-    .pipe(concat('main.js'))
-    .pipe(uglify())
+    .pipe(plugins.plumber())
+    .pipe(plugins.concat('main.js'))
+    .pipe(plugins.uglify())
     .on('error', onError)
     .pipe(gulp.dest(config.build.js));
 });
 
 gulp.task('html', () => {
   gulp.src(config.source.html)
-    .pipe(plumber())
-    .pipe(pug())
+    .pipe(plugins.plumber())
+    .pipe(plugins.pug())
     .on('error', onError)
     .pipe(gulp.dest(config.build.html));
 });
 
 gulp.task('images', () => {
   gulp.src(config.source.img)
-    .pipe(plumber())
-    .pipe(imagemin({
+    .pipe(plugins.plumber())
+    .pipe(plugins.imagemin({
         optimizationLevel: 3,
         progressive: true,
         interlaced: true
@@ -92,9 +78,9 @@ gulp.task('images', () => {
 
 gulp.task('icons', () => {
   gulp.src(config.source.icons)
-    .pipe(svgmin())
-    .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
-    .pipe(cheerio({
+    .pipe(plugins.svgmin())
+    .pipe(plugins.svgstore({ fileName: 'icons.svg', inlineSvg: true }))
+    .pipe(plugins.cheerio({
       run: function ($, file) {
           $('svg').addClass('hide');
           $('[fill]').removeAttr('fill');
