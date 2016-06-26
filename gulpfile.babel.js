@@ -1,6 +1,6 @@
 'use strict';
 
-import gulp from 'gulp';
+const gulp = require('gulp-help')(require('gulp'));
 import config from './gulp.config'
 import log from './log'
 import poststylus from 'poststylus';
@@ -19,7 +19,7 @@ function onError(err) {
   this.emit('end');
 }
 
-gulp.task('css', () => {
+gulp.task('css', 'Build Styl files using postcss', () => {
   gulp.src(config.source.styl)
     .pipe(plugins.stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
@@ -40,7 +40,7 @@ gulp.task('css', () => {
     .pipe(gulp.dest(config.build.css));
 });
 
-gulp.task('vendors', () => {
+gulp.task('vendors', 'Compile vendor scripts', () => {
   gulp.src(config.source.vendors)
     .pipe(plugins.plumber())
     .pipe(plugins.concat('vendors.js'))
@@ -48,7 +48,7 @@ gulp.task('vendors', () => {
     .pipe(gulp.dest(config.build.vendors));
 });
 
-gulp.task('js', () => {
+gulp.task('js', 'Build js scripts', () => {
   gulp.src(config.source.js)
     .pipe(plugins.plumber())
     .pipe(plugins.concat('main.js'))
@@ -57,7 +57,7 @@ gulp.task('js', () => {
     .pipe(gulp.dest(config.build.js));
 });
 
-gulp.task('html', () => {
+gulp.task('html', 'Build pug files and create html', () => {
   gulp.src(config.source.html)
     .pipe(plugins.plumber())
     .pipe(plugins.pug())
@@ -65,7 +65,7 @@ gulp.task('html', () => {
     .pipe(gulp.dest(config.build.html));
 });
 
-gulp.task('images', () => {
+gulp.task('images', 'Change images location and uses optimization', () => {
   gulp.src(config.source.img)
     .pipe(plugins.plumber())
     .pipe(plugins.imagemin({
@@ -76,7 +76,7 @@ gulp.task('images', () => {
     .pipe(gulp.dest(config.build.img));
 });
 
-gulp.task('icons', () => {
+gulp.task('icons', 'Task to buid svg icons', () => {
   gulp.src(config.source.icons)
     .pipe(plugins.svgmin())
     .pipe(plugins.svgstore({ fileName: 'icons.svg', inlineSvg: true }))
@@ -91,15 +91,23 @@ gulp.task('icons', () => {
     .pipe(gulp.dest(config.build.svg));
 });
 
-gulp.task('watch', () => {
+gulp.task('watch','Wathc all files and waits changes', () => {
+  gulp.watch(config.source.css, ['css'])
+  .on('change', (event) => {
+    log('File ' + event.path + ' was ' + event.type + ', running css tasks...');
+  });
+  gulp.watch(config.source.js, ['js'])
+  .on('change', (event) => {
+    log('File ' + event.path + ' was ' + event.type + ', running sass tasks...');
+  });
+
   gulp.watch(config.source.html, { debounceDelay: 300 }, ['html']);
-  gulp.watch(config.source.css, ['css']);
-  gulp.watch(config.source.js, ['js']);
   gulp.watch(config.source.img, ['images']);
   gulp.watch(config.source.icons, ['icons']);
 });
 
-gulp.task('browser-sync', () => {
+
+gulp.task('browser-sync', 'Create a browser-sync server' ,() => {
   var files = [
     config.build.build
   ];
@@ -112,6 +120,6 @@ gulp.task('browser-sync', () => {
 
 });
 
-gulp.task('default', ['css', 'html', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'html', 'vendors', 'js', 'images', 'icons']);
+gulp.task('serve', 'build everythig, watch files and create a server', ['css', 'html', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', 'Build everything',['css', 'html', 'vendors', 'js', 'images', 'icons']);
 
