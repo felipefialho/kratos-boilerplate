@@ -1,6 +1,8 @@
 'use strict';
 
 import gulp from 'gulp';
+import config from './gulp.config'
+import log from './log'
 import plumber from 'gulp-plumber';
 import stylus from 'gulp-stylus';
 import poststylus from 'poststylus';
@@ -21,37 +23,18 @@ import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
 import mdcss from 'mdcss';
+import gulpLoadPlugins from 'gulp-load-plugins';
 
-const srcPaths = {
-  js: 'src/js/**/*.js',
-  css: 'src/styl/**/*.styl',
-  styl: 'src/styl/style.styl',
-  html: 'src/pug/*.pug',
-  icons: 'src/svg/icons/*',
-  svg: 'src/svg/',
-  img: 'src/img/**/*',
-  vendors: [
+var plugins = gulpLoadPlugins();
 
-  ]
-};
-
-const buildPaths = {
-  build: 'build/**/*',
-  js: 'build/js/',
-  css: 'build/css/',
-  html: 'build/',
-  img: 'build/img',
-  svg: 'build/svg/',
-  vendors: 'src/js/_core/'
-};
 
 function onError(err) {
-  console.log(err);
+  log(err);
   this.emit('end');
 }
 
 gulp.task('css', () => {
-  gulp.src(srcPaths.styl)
+  gulp.src(config.source.styl)
     .pipe(stylus({
       use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
       compress: false
@@ -68,47 +51,47 @@ gulp.task('css', () => {
     .on('error', onError)
     .pipe(gcmq())
     .pipe(cssnano())
-    .pipe(gulp.dest(buildPaths.css));
+    .pipe(gulp.dest(config.build.css));
 });
 
 gulp.task('vendors', () => {
-  gulp.src(srcPaths.vendors)
+  gulp.src(config.source.vendors)
     .pipe(plumber())
     .pipe(concat('vendors.js'))
     .pipe(uglify())
-    .pipe(gulp.dest(buildPaths.vendors));
+    .pipe(gulp.dest(config.build.vendors));
 });
 
 gulp.task('js', () => {
-  gulp.src(srcPaths.js)
+  gulp.src(config.source.js)
     .pipe(plumber())
     .pipe(concat('main.js'))
     .pipe(uglify())
     .on('error', onError)
-    .pipe(gulp.dest(buildPaths.js));
+    .pipe(gulp.dest(config.build.js));
 });
 
 gulp.task('html', () => {
-  gulp.src(srcPaths.html)
+  gulp.src(config.source.html)
     .pipe(plumber())
     .pipe(pug())
     .on('error', onError)
-    .pipe(gulp.dest(buildPaths.html));
+    .pipe(gulp.dest(config.build.html));
 });
 
 gulp.task('images', () => {
-  gulp.src(srcPaths.img)
+  gulp.src(config.source.img)
     .pipe(plumber())
     .pipe(imagemin({
         optimizationLevel: 3,
         progressive: true,
         interlaced: true
       }))
-    .pipe(gulp.dest(buildPaths.img));
+    .pipe(gulp.dest(config.build.img));
 });
 
 gulp.task('icons', () => {
-  gulp.src(srcPaths.icons)
+  gulp.src(config.source.icons)
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
     .pipe(cheerio({
@@ -119,20 +102,20 @@ gulp.task('icons', () => {
 
       parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest(buildPaths.svg));
+    .pipe(gulp.dest(config.build.svg));
 });
 
 gulp.task('watch', () => {
-  gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
-  gulp.watch(srcPaths.css, ['css']);
-  gulp.watch(srcPaths.js, ['js']);
-  gulp.watch(srcPaths.img, ['images']);
-  gulp.watch(srcPaths.icons, ['icons']);
+  gulp.watch(config.source.html, { debounceDelay: 300 }, ['html']);
+  gulp.watch(config.source.css, ['css']);
+  gulp.watch(config.source.js, ['js']);
+  gulp.watch(config.source.img, ['images']);
+  gulp.watch(config.source.icons, ['icons']);
 });
 
 gulp.task('browser-sync', () => {
   var files = [
-    buildPaths.build
+    config.build.build
   ];
 
   browserSync.init(files, {
