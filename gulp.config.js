@@ -12,13 +12,14 @@ var config = {
     ]
   },
   build: {
-    build: 'build/**/*',
+    dist: 'build/**/*',
     js: 'build/js/',
     css: 'build/css/',
     html: 'build/',
     img: 'build/img',
     svg: 'build/svg/',
-    vendors: 'src/js/_core/'
+    vendors: 'src/js/_core/',
+    folder: './build'
   }
 }
 

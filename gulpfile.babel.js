@@ -5,6 +5,7 @@ import help from 'gulp-help';
 const helper = help(gulp);
 import config from './gulp.config'
 import log from './log'
+import del from 'del'
 import poststylus from 'poststylus';
 import rucksack from 'rucksack-css';
 import fontMagician from 'postcss-font-magician';
@@ -40,6 +41,10 @@ gulp.task('css', 'Build Styl files using postcss', () => {
     .pipe(gcmq())
     .pipe(plugins.cssnano())
     .pipe(gulp.dest(config.build.css));
+});
+
+gulp.task('clean', 'Clean build folder', () => {
+  return del(config.build.folder);
 });
 
 gulp.task('vendors', 'Compile vendor scripts', () => {
@@ -111,7 +116,7 @@ gulp.task('watch','Wathc all files and waits changes', () => {
 
 gulp.task('browser-sync', 'Create a browser-sync server' ,() => {
   var files = [
-    config.build.build
+    config.build.dist
   ];
 
   browserSync.init(files, {
