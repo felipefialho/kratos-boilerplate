@@ -1,6 +1,8 @@
 'use strict';
 
-const gulp = require('gulp-help')(require('gulp'));
+import gulp from 'gulp';
+import help from 'gulp-help';
+const helper = help(gulp);
 import config from './gulp.config'
 import log from './log'
 import poststylus from 'poststylus';
