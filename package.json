@@ -29,7 +29,6 @@
     "babel-preset-es2015-rollup": "^1.1.1",
     "browser-sync": "^2.12.3",
     "eslint": "^2.10.0",
-    "fs": "0.0.2",
     "gulp": "^3.9.1",
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.0",
