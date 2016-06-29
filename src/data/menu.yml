@@ -1,0 +1,13 @@
+-
+  name: GulpJS
+  href: http://gulpjs.com/
+  external: true
+-
+  name: Pug
+  href: https://github.com/pugjs/pug
+-
+  name: Stylus
+  href: http://stylus-lang.com/
+-
+  name: Browsersync
+  href: https://www.browsersync.io/
