@@ -23,7 +23,6 @@ import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
 import mdcss from 'mdcss';
-import path from 'path';
 import fs from 'fs';
 
 const srcPaths = {
