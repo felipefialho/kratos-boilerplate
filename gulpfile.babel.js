@@ -8,8 +8,11 @@ import fontMagician from 'postcss-font-magician';
 import sourcemaps from 'gulp-sourcemaps';
 import lost from 'lost';
 import rupture from 'rupture';
+import data from 'gulp-data';
+import yaml from 'js-yaml';
 import browserSync from 'browser-sync';
 import mdcss from 'mdcss';
+import fs from 'fs';
 
 let plugins = loader({
   rename: {
@@ -25,6 +28,7 @@ const srcPaths = {
   icons: 'src/svg/icons/*',
   svg: 'src/svg/',
   img: 'src/img/**/*',
+  data: 'src/data/',
   vendors: [
 
   ]
@@ -39,6 +43,9 @@ const buildPaths = {
   svg: 'build/svg/',
   vendors: 'src/js/_core/'
 };
+
+let dataJson = {}
+let files = []
 
 function onError(err) {
   console.log(err);
@@ -83,10 +90,22 @@ gulp.task('js', () => {
     .pipe(gulp.dest(buildPaths.js));
 });
 
+gulp.task('read:data', () => {
+  fs.readdir(srcPaths.data, (err, items) => {
+      for (var i = 0; i < items.length; i++) {
+          files.push(items[i].split('.')[0]);
+      }
+      for (var i = 0; i < files.length; i++) {
+          dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+      }
+  });
+});
+
 gulp.task('html', () => {
   gulp.src(srcPaths.html)
     .pipe(plugins.plumber())
     .pipe(plugins.pug())
+    .pipe(plugins.data(dataJson))
     .on('error', onError)
     .pipe(gulp.dest(buildPaths.html));
 });
@@ -119,6 +138,7 @@ gulp.task('icons', () => {
 
 gulp.task('watch', () => {
   gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
+  gulp.watch(srcPaths.data+'**/*', { debounceDelay: 300 }, ['read:data','html']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
@@ -138,6 +158,6 @@ gulp.task('browser-sync', () => {
 
 });
 
-gulp.task('default', ['css', 'html', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'html', 'vendors', 'js', 'images', 'icons']);
+gulp.task('default', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'icons']);
 
