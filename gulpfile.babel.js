@@ -8,7 +8,6 @@ import fontMagician from 'postcss-font-magician';
 import sourcemaps from 'gulp-sourcemaps';
 import lost from 'lost';
 import rupture from 'rupture';
-import data from 'gulp-data';
 import yaml from 'js-yaml';
 import browserSync from 'browser-sync';
 import mdcss from 'mdcss';
@@ -104,8 +103,8 @@ gulp.task('read:data', () => {
 gulp.task('html', () => {
   gulp.src(srcPaths.html)
     .pipe(plugins.plumber())
-    .pipe(plugins.pug())
     .pipe(plugins.data(dataJson))
+    .pipe(plugins.pug())
     .on('error', onError)
     .pipe(gulp.dest(buildPaths.html));
 });
