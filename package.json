@@ -10,8 +10,8 @@
     "lint": "./node_modules/.bin/eslint src",
     "fix": "./node_modules/.bin/eslint src --fix",
     "reporter": "./node_modules/.bin/parker ./build/css/",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"
+    "precommit": "npm run fix && npm run lint",
+    "prepush": "npm run fix && npm run lint"
   },
   "keywords": [
     "boilerplate"
