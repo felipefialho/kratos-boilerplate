@@ -10,8 +10,8 @@
     "lint": "./node_modules/.bin/eslint src",
     "fix": "./node_modules/.bin/eslint src --fix",
     "reporter": "./node_modules/.bin/parker ./build/css/",
-    "precommit": "npm run lint",
-    "prepush": "npm run lint"
+    "precommit": "npm run fix && npm run lint",
+    "prepush": "npm run fix && npm run lint"
   },
   "keywords": [
     "boilerplate"
@@ -33,6 +33,7 @@
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.1",
+    "gulp-data": "^1.2.1",
     "gulp-group-css-media-queries": "^1.1.0",
     "gulp-imagemin": "^3.0.1",
     "gulp-plumber": "^1.1.0",
@@ -44,6 +45,7 @@
     "gulp-svgstore": "^6.0.0",
     "gulp-uglify": "^1.5.3",
     "husky": "^0.11.4",
+    "js-yaml": "^3.6.1",
     "lost": "^6.7.2",
     "mdcss": "^1.5.1",
     "parker": "0.0.10",

@@ -15,12 +15,15 @@ import postcss from 'gulp-postcss';
 import concat from 'gulp-concat';
 import uglify from 'gulp-uglify';
 import pug from 'gulp-pug';
+import data from 'gulp-data';
+import yaml from 'js-yaml';
 import imagemin from 'gulp-imagemin';
 import browserSync from 'browser-sync';
 import svgmin from 'gulp-svgmin';
 import svgstore from 'gulp-svgstore';
 import cheerio from 'gulp-cheerio';
 import mdcss from 'mdcss';
+import fs from 'fs';
 
 const srcPaths = {
   js: 'src/js/**/*.js',
@@ -30,6 +33,7 @@ const srcPaths = {
   icons: 'src/svg/icons/*',
   svg: '_src/svg/*.svg', 
   img: 'src/img/**/*',
+  data: 'src/data/',
   vendors: [
 
   ]
@@ -44,6 +48,9 @@ const buildPaths = {
   svg: 'build/svg/',
   vendors: 'src/js/_core/'
 };
+
+let dataJson = {}
+let files = []
 
 function onError(err) {
   console.log(err);
@@ -88,9 +95,21 @@ gulp.task('js', () => {
     .pipe(gulp.dest(buildPaths.js));
 });
 
+gulp.task('read:data', () => {
+  fs.readdir(srcPaths.data, (err, items) => {
+    for (var i = 0; i < items.length; i++) {
+      files.push(items[i].split('.')[0]);
+    }
+    for (var i = 0; i < files.length; i++) {
+      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+    }
+  });
+});
+
 gulp.task('html', () => {
   gulp.src(srcPaths.html)
     .pipe(plumber())
+    .pipe(data(dataJson))
     .pipe(pug())
     .on('error', onError)
     .pipe(gulp.dest(buildPaths.html));
@@ -130,6 +149,7 @@ gulp.task('icons', () => {
 
 gulp.task('watch', () => {
   gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
+  gulp.watch(srcPaths.data+'**/*', { debounceDelay: 300 }, ['read:data','html']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
@@ -148,7 +168,7 @@ gulp.task('browser-sync', () => {
   });
 
 });
-
-gulp.task('default', ['css', 'html', 'vendors', 'js', 'images', 'svg', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'html', 'vendors', 'js', 'images', 'svg', 'icons']);
+ 
+gulp.task('default', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'svg', 'icons', 'watch', 'browser-sync']);
+gulp.task('build', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'svg', 'icons']); 
 
