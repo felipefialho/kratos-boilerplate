@@ -56,36 +56,38 @@ reset(arg = '')
 // 3. Hidden
 // --------------------------------------------------
 
-hidden(arg = '') 
-  
-  // Hidden Font 
+hidden(arg = '')
+
+  // Hidden Font
   if (arg == font)
     font-size 0
-    text-indent -999em 
-   
+    text-indent -999em
+ 
+  // Hidden on xs screens
   if (arg == xs)
     +below('xs')
-      display none !important   
-    
-  // Hidden on small screens    
+      display none !important
+
+  // Hidden on small screens
   if (arg == sm)
     +below('sm')
-      display none !important   
-    
-  // Hidden on medium screens   
+      display none !important
+
+  // Hidden on medium screens
   if (arg == md)
     +below('md')
-      display none !important   
-    
-  // Hidden All 
-  if (arg == all)
-    visibility hidden !important 
-    font-size 0 !important 
-    display none !important 
+      display none !important
 
-  // Screen Reader Only 
+  // Hidden All
+  if (arg == all)
+    visibility hidden !important
+    font-size 0 !important
+    display none !important
+
+  // Screen Reader Only
   if (arg == sr)
-    position absolute
+    position absolute 
+    top -999em
     width 1px
     height 1px
     padding 0
@@ -95,28 +97,38 @@ hidden(arg = '')
     border 0
 
 
-visible(arg = '') 
+visible(arg = '')
 
-  // Visible on extra-small screens  
+  // Visible on extra-small screens
   if (arg == xs)
-    +above('sm')
-      display none !important    
+    display none !important
+
+    +above('xs')
+      display block !important
 
 
-  // Visible on small screens  
+  // Visible on small screens
   if (arg == sm)
-    display none !important  
-  
-    +above('sm')
-      display block !important 
-    
+    display none !important
 
-  // Visible on large screens  
+    +above('sm')
+      display block !important
+
+
+  // Visible on medium screens
+  if (arg == md)
+    display none !important
+
+    +above('md')
+      display block !important
+
+
+  // Visible on large screens
   if (arg == lg)
-    display none !important  
+    display none !important
 
     +above('lg')
-      display block !important 
+      display block !important
 
 
 //
