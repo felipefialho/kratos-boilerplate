@@ -100,16 +100,14 @@ hidden(arg = '')
 visible(arg = '')
 
   // Visible on extra-small screens
-  if (arg == xs)
-    display none !important
-
-    +above('xs')
-      display block !important
-
-
+  if (arg == xs) 
+    +above('sm')
+      display none !important
+ 
   // Visible on small screens
   if (arg == sm)
     display none !important
+
 
     +above('sm')
       display block !important
