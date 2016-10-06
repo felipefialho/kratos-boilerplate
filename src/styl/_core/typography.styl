@@ -3,6 +3,7 @@
 //
 // ==================================================
 
+//
 // Font Family
 // --------------------------------------------------
 
@@ -14,6 +15,7 @@ font-family(family)
     font-family 'Raleway', sans-serif
 
 
+//
 // Transform
 // --------------------------------------------------
 
@@ -27,6 +29,7 @@ font-transform(transform)
     letter-spacing .1rem
 
 
+//
 // Uppercase
 // --------------------------------------------------
 
@@ -41,19 +44,14 @@ font-weight(arg = '')
     font-weight 300
 
 
+//
 // Fonts
 // --------------------------------------------------
 
 font(type = '', weight = '', family = '', transform = '')
-
-  // Type
-  // --------------------------------------------------
-
+ 
   if (type)
-
-    // Headings
-    // --------------------------------------------------
-
+ 
     if (type == h1)
       font-size 5rem
       line-height 6rem
@@ -71,44 +69,26 @@ font(type = '', weight = '', family = '', transform = '')
       line-height 3rem
 
     if (type == h5)
-      font-size 1.8rem
+      font-size $text-size
       line-height 2.4rem
 
     if (type == h6)
       font-size 1.2rem
       line-height 1.8rem
-
-    // Paragraphs
-    // --------------------------------------------------
-
+ 
     if (type == p1)
       font-size $text-size
-      line-height 2.8rem
-
-    if (type == p2)
-      font-size 1.6rem
       line-height 2.4rem
 
-
-  // Weights
-  // --------------------------------------------------
-
-  if (weight)
-
-      font-weight(weight)
-
-
-  // Font Secondary
-  // --------------------------------------------------
-
-  if (family)
-
-      font-family(family)
-
-
-  // Transform
-  // --------------------------------------------------
-
-  if (transform)
-
-      font-transform(transform)
+    if (type == p2)
+      font-size 1.2rem
+      line-height 1.8rem
+ 
+  if (weight) 
+    font-weight(weight)
+ 
+  if (family) 
+    font-family(family)
+ 
+  if (transform) 
+    font-transform(transform)

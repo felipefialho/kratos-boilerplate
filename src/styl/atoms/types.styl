@@ -89,17 +89,15 @@ h1, h2, h3, h4, h5, h6
 // --------------------------------------------------
 
 p
-  margin 0 0 $space
-
-  &:last-child
-    margin-bottom 0
+  &:not(:last-child)
+    margin-bottom $space
 
 
 //
 // 4. Bold
 // --------------------------------------------------
 
-b,
+b
 strong
   font-weight(bold)
 
@@ -108,7 +106,7 @@ strong
 // 5. Italic
 // --------------------------------------------------
 
-i,
+i
 em
   font-style italic
 
@@ -117,8 +115,9 @@ em
 // 6. Small
 // --------------------------------------------------
 
+.small
 small
-  font-size 85%
+  font-size .8em
 
 
 //
@@ -163,4 +162,3 @@ blockquote
 
     &:before
         content '– '
-

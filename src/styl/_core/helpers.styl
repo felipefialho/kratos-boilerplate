@@ -15,21 +15,18 @@
 
 center(arg = '', pos = '')
   if (pos == fixed)
-    position fixed
-  
+    position fixed 
   else 
     position absolute  
   
   
   if (arg == top)
     top 50%
-    transform translateY(-50%)
-  
+    transform translateY(-50%) 
   else if (arg == full)
     top 50%
     left 50%
-    transform translate(-50%,-50%)
-  
+    transform translate(-50%,-50%) 
   else
     left 50%
     transform translateX(-50%)
@@ -97,7 +94,7 @@ hidden(arg = '')
     border 0
 
 
-visible(arg = '')
+visible(arg = '', type = block)
 
   // Visible on extra-small screens
   if (arg == xs) 
@@ -107,10 +104,9 @@ visible(arg = '')
   // Visible on small screens
   if (arg == sm)
     display none !important
-
-
+ 
     +above('sm')
-      display block !important
+      display type !important
 
 
   // Visible on medium screens
@@ -118,7 +114,7 @@ visible(arg = '')
     display none !important
 
     +above('md')
-      display block !important
+      display type !important
 
 
   // Visible on large screens
@@ -126,7 +122,7 @@ visible(arg = '')
     display none !important
 
     +above('lg')
-      display block !important
+      display type !important
 
 
 //
