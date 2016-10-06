@@ -78,7 +78,7 @@ gulp.task('css', () => {
         //logo: '',
         destination: 'build/styleguide',
         examples: {
-          css: ['../build/css/style.css']
+          css: ['../css/style.css']
         }
       })
     ]))
@@ -179,6 +179,27 @@ gulp.task('browser-sync', () => {
 
 });
  
-gulp.task('default', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'svg', 'icons', 'watch', 'browser-sync']);
-gulp.task('build', ['css', 'read:data', 'html', 'vendors', 'js', 'images', 'svg', 'icons']); 
+gulp.task('default', [
+  'css', 
+  'read:data', 
+  'html', 
+  'vendors', 
+  'js', 
+  'images', 
+  'svg', 
+  'icons', 
+  'watch', 
+  'browser-sync'
+]);
+
+gulp.task('build', [
+  'css', 
+  'read:data', 
+  'html', 
+  'vendors', 
+  'js', 
+  'images', 
+  'svg', 
+  'icons'
+]); 
 
