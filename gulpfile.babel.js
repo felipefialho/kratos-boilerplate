@@ -75,7 +75,8 @@ gulp.task('css', () => {
     .on('error', onError)
     .pipe(postcss([
       mdcss({
-        logo: '../logo-kratos.png',
+        //logo: '',
+        destination: 'build/styleguide',
         examples: {
           css: ['../build/css/style.css']
         }
