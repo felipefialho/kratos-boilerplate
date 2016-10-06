@@ -60,7 +60,16 @@ function onError(err) {
 gulp.task('css', () => {
   gulp.src(srcPaths.styl)
     .pipe(stylus({
-      use: [rupture(), poststylus([lost(), fontMagician(), rucksack({ autoprefixer: true })])],
+      use: [
+        rupture(), 
+        poststylus([
+          lost(), 
+          fontMagician(), 
+          rucksack({ 
+            autoprefixer: true 
+          })
+        ])
+      ],
       compress: false
     }))
     .on('error', onError)
@@ -127,9 +136,9 @@ gulp.task('images', () => {
 });
 
 gulp.task('svg', () => {
-  gulp.src(srcWebsite.svg)
+  gulp.src(srcPaths.svg)
     .pipe(svgmin())  
-    .pipe(gulp.dest(buildWebsite.svg));
+    .pipe(gulp.dest(buildPaths.svg));
 });
 
 gulp.task('icons', () => {
