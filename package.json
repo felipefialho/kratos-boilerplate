@@ -47,6 +47,7 @@
     "js-yaml": "^3.6.1",
     "lost": "^7.1.0",
     "mdcss": "^1.5.1",
+    "mdcss-theme-github": "^2.0.0",
     "parker": "0.0.10",
     "postcss-font-magician": "^1.4.0",
     "poststylus": "^0.2.3",

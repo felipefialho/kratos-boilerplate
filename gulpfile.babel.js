@@ -77,9 +77,10 @@ gulp.task('css', () => {
       mdcss({
         //logo: '',
         destination: 'build/styleguide',
+        title: 'Styleguide',
         examples: {
           css: ['../css/style.css']
-        }
+        },
       })
     ]))
     .on('error', onError)
