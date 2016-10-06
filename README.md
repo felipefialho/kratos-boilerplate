@@ -99,8 +99,7 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 - `gulp browser-sync`: inicialize a server
 - `gulp watch`: call for watch files
 - `gulp build`: run all tasks
-
-- `npm run test`: test the javascript and css complexity 
+- `npm run test`: test the javascript and css complexity
 - `npm run fix`: command to fix all eslint errors
 
 
