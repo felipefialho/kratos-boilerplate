@@ -31,7 +31,7 @@ const srcPaths = {
   styl: 'src/styl/style.styl',
   html: 'src/pug/*.pug',
   icons: 'src/svg/icons/*',
-  svg: '_src/svg/*.svg',
+  svg: 'src/svg/',
   img: 'src/img/**/*',
   data: 'src/data/',
   vendors: [
@@ -45,10 +45,7 @@ const buildPaths = {
   css: 'build/css/',
   html: 'build/',
   img: 'build/img',
-  svg: [
-    '_src/website/svg/',
-    'public/svg/'
-  ],
+  svg: 'build/svg',
   vendors: 'src/js/_core/'
 };
 
@@ -141,6 +138,9 @@ gulp.task('images', () => {
 });
 
 gulp.task('svg', () => {
+  gulp.src(srcPaths.svg)
+    .pipe(svgmin())
+    .pipe(gulp.dest(srcPaths.svg));
   gulp.src(srcPaths.svg)
     .pipe(svgmin())
     .pipe(gulp.dest(buildPaths.svg));
