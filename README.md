@@ -89,17 +89,19 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 
 
 ### Tasks
-
-- `gulp`: run all tasks and initialize watch for changes and a server
+ 
 - `gulp js`: execute js files
 - `gulp html`: compile pug files
 - `gulp css`: compile stylus files
 - `gulp images`: compress image files
-- `gulp icons`: generate sprite of icons
-- `gulp browser-sync`: inicialize a server
+- `gulp icons`: generate sprite of icons 
 - `gulp watch`: call for watch files
-- `gulp build`: run all tasks
-- `npm run test`: test the javascript and css complexity
+
+- `npm start`: run all tasks and initialize watch for changes and a server
+- `npm test`: test the javascript and css complexity
+- `npm run lint`: test the javascript
+- `npm run reporter`: test css complexity
+- `npm run build`: run all tasks to build
 - `npm run fix`: command to fix all eslint errors
 
 

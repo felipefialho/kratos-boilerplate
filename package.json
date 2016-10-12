@@ -11,6 +11,8 @@
     "fix": "./node_modules/.bin/eslint src --fix",
     "reporter": "./node_modules/.bin/parker ./build/css/",
     "precommit": "npm run lint",
+    "start": "gulp",
+    "build": "gulp build",
     "test": "npm run lint && npm run reporter"
   },
   "keywords": [
