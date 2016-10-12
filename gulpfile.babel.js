@@ -31,7 +31,7 @@ const srcPaths = {
   styl: 'src/styl/style.styl',
   html: 'src/pug/*.pug',
   icons: 'src/svg/icons/*',
-  svg: '_src/svg/*.svg', 
+  svg: '_src/svg/*.svg',
   img: 'src/img/**/*',
   data: 'src/data/',
   vendors: [
@@ -45,7 +45,10 @@ const buildPaths = {
   css: 'build/css/',
   html: 'build/',
   img: 'build/img',
-  svg: 'build/svg/',
+  svg: [
+    '_src/website/svg/',
+    'public/svg/'
+  ],
   vendors: 'src/js/_core/'
 };
 
@@ -61,12 +64,12 @@ gulp.task('css', () => {
   gulp.src(srcPaths.styl)
     .pipe(stylus({
       use: [
-        rupture(), 
+        rupture(),
         poststylus([
-          lost(), 
-          fontMagician(), 
-          rucksack({ 
-            autoprefixer: true 
+          lost(),
+          fontMagician(),
+          rucksack({
+            autoprefixer: true
           })
         ])
       ],
@@ -130,16 +133,16 @@ gulp.task('images', () => {
   gulp.src(srcPaths.img)
     .pipe(plumber())
     .pipe(imagemin({
-        optimizationLevel: 3,
-        progressive: true,
-        interlaced: true
-      }))
+      optimizationLevel: 3,
+      progressive: true,
+      interlaced: true
+    }))
     .pipe(gulp.dest(buildPaths.img));
 });
 
 gulp.task('svg', () => {
   gulp.src(srcPaths.svg)
-    .pipe(svgmin())  
+    .pipe(svgmin())
     .pipe(gulp.dest(buildPaths.svg));
 });
 
@@ -148,10 +151,10 @@ gulp.task('icons', () => {
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
     .pipe(cheerio({
-      run: function ($, file) {
-          $('svg').addClass('hide');
-          $('[fill]').removeAttr('fill');
-        },
+      run: function($, file) {
+        $('svg').addClass('hide');
+        $('[fill]').removeAttr('fill');
+      },
 
       parserOptions: { xmlMode: true }
     }))
@@ -160,7 +163,7 @@ gulp.task('icons', () => {
 
 gulp.task('watch', () => {
   gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
-  gulp.watch(srcPaths.data+'**/*', { debounceDelay: 300 }, ['read:data','html']);
+  gulp.watch(srcPaths.data + '**/*', { debounceDelay: 300 }, ['read:data', 'html']);
   gulp.watch(srcPaths.css, ['css']);
   gulp.watch(srcPaths.js, ['js']);
   gulp.watch(srcPaths.img, ['images']);
@@ -179,28 +182,27 @@ gulp.task('browser-sync', () => {
   });
 
 });
- 
+
 gulp.task('default', [
-  'css', 
-  'read:data', 
-  'html', 
-  'vendors', 
-  'js', 
-  'images', 
-  'svg', 
-  'icons', 
-  'watch', 
+  'css',
+  'read:data',
+  'html',
+  'vendors',
+  'js',
+  'images',
+  'svg',
+  'icons',
+  'watch',
   'browser-sync'
 ]);
 
 gulp.task('build', [
-  'css', 
-  'read:data', 
-  'html', 
-  'vendors', 
-  'js', 
-  'images', 
-  'svg', 
+  'css',
+  'read:data',
+  'html',
+  'vendors',
+  'js',
+  'images',
+  'svg',
   'icons'
-]); 
-
+]);
