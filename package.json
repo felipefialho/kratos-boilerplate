@@ -11,7 +11,7 @@
     "fix": "./node_modules/.bin/eslint src --fix",
     "reporter": "./node_modules/.bin/parker ./build/css/",
     "precommit": "npm run lint",
-    "test": "npm run lint && parker build/css"
+    "test": "npm run lint && npm run reporter"
   },
   "keywords": [
     "boilerplate"
