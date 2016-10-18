@@ -183,19 +183,6 @@ gulp.task('browser-sync', () => {
 
 });
 
-gulp.task('default', [
-  'css',
-  'read:data',
-  'html',
-  'vendors',
-  'js',
-  'images',
-  'svg',
-  'icons',
-  'watch',
-  'browser-sync'
-]);
-
 gulp.task('build', [
   'css',
   'read:data',
@@ -205,4 +192,10 @@ gulp.task('build', [
   'images',
   'svg',
   'icons'
+]);
+
+gulp.task('default', [
+  'build',
+  'watch',
+  'browser-sync'
 ]);
