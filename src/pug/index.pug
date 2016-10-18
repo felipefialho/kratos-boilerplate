@@ -7,8 +7,10 @@ html
     meta(name='description' content="meta desc")
     meta(name='viewport' content='width=device-width, initial-scale=1.0, user-scalable=no')
 
+    //- ==================================================
     //- Essential Meta Tags for Social Media
-    //- --------------------------------------------------
+    //- ==================================================
+
     meta(property='og:title' content='')
     meta(property='og:description' content='')
     meta(property='og:image' content='')
@@ -19,8 +21,10 @@ html
     meta(name='twitter:image' content='')
     meta(name='twitter:url' content='')
 
+    //- ==================================================
     //- Webapp
-    //- -------------------------------------------------- 
+    //- ==================================================
+
     link(rel='apple-touch-icon' sizes='180x180' href='/favicon/apple-touch-icon.png')
     link(rel='icon' type='image/png' href='/favicon/favicon-32x32.png' sizes='32x32')
     link(rel='icon' type='image/png' href='/favicon/favicon-16x16.png' sizes='16x16')
@@ -30,12 +34,16 @@ html
     meta(name='application-name' content='#{config.title}')
     meta(name='theme-color' content='#ffffff')
 
-    //- Stylesheet
-    //- --------------------------------------------------
+    //- ==================================================
+    //- Stylesheets
+    //- ==================================================
+
     link(rel="stylesheet", type="text/css", href="css/style.css")
 
+    //- ==================================================
     //- GA
-    //- --------------------------------------------------
+    //- ==================================================
+
     if ((config) && (config.analytics) && (config.analytics.ga))
       script.
         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -49,16 +57,21 @@ html
   body
     .container
 
+      //- ==================================================
       //- Put your content here
-      //- --------------------------------------------------
-    h1 #{config.title}
-    p #{config.description}
+      //- ==================================================
 
-    ul.nav
-      each val in menu
-        li
-          a(href=val.href, target=val.external ? '_blank' : '')= val.name
+      h1 #{config.title}
+      p #{config.description}
 
+      ul.nav
+        each val in menu
+          li
+            a(href=val.href, target=val.external ? '_blank' : '')= val.name
+
+
+    //- ==================================================
     //- Scripts
-    //- --------------------------------------------------
+    //- ==================================================
+    
     script(src='js/main.js')
