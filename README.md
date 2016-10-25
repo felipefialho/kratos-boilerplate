@@ -99,7 +99,8 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 
 - `npm start`: run all tasks and initialize watch for changes and a server
 - `npm test`: test the javascript and css complexity
-- `npm run lint`: test the javascript
+- `npm run lint:js`: test the javascript
+- `npm run lint:css`: test the stylus
 - `npm run fix`: command to fix all eslint errors
 - `npm run reporter`: test css complexity
 - `npm run build`: run all tasks to build

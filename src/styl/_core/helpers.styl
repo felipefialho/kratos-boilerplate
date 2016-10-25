@@ -1,20 +1,21 @@
-// ==================================================
+// ================================================== 
 // Helpers
 //
 // 1. Center, horizontal and vertical 
 // 2. Resets
 // 3. Hidden 
 // 4. Triangle    
-// 5. Has Scrollbar  
-// ==================================================
+// 5. Has Scrollbar   
+// ===============================================================
 
 //
 // 1. Center, horizontal and vertical
 // -----------------------------------
 
-center(arg = '', pos = '')
+$center(arg = '', pos = '')
   if (pos == fixed)
     position fixed 
+    
   else 
     position absolute  
   
@@ -22,10 +23,12 @@ center(arg = '', pos = '')
   if (arg == top)
     top 50%
     transform translateY(-50%) 
+    
   else if (arg == full)
-    top 50%
     left 50%
+    top 50%
     transform translate(-50%,-50%) 
+    
   else
     left 50%
     transform translateX(-50%)
@@ -35,12 +38,12 @@ center(arg = '', pos = '')
 // 2. Resets
 // --------------------------------------------------
 
-reset(arg = '')
+$reset(arg = '')
   
   if (arg == list) 
+    list-style none
     margin 0
     padding-left 0
-    list-style none
     
   if (arg == form)  
     background 0
@@ -52,7 +55,7 @@ reset(arg = '')
 // 3. Hidden
 // --------------------------------------------------
 
-hidden(arg = '')
+$hidden((arg = '')
 
   // Hidden Font
   if (arg == font)
@@ -76,24 +79,24 @@ hidden(arg = '')
 
   // Hidden All
   if (arg == all)
-    visibility hidden !important
-    font-size 0 !important
     display none !important
+    font-size 0 !important
+    visibility hidden !important
 
   // Screen Reader Only
   if (arg == sr)
+    border 0
+    clip rect(0,0,0,0)
+    height 1px
+    margin -1px
+    overflow hidden
+    padding 0
     position absolute 
     top -999em
     width 1px
-    height 1px
-    padding 0
-    margin -1px
-    overflow hidden
-    clip rect(0,0,0,0)
-    border 0
 
 
-visible(arg = '', type = block)
+$visible(arg = '', type = block)
 
   // Visible on extra-small screens
   if (arg == xs) 
@@ -130,18 +133,17 @@ visible(arg = '', type = block)
  
 // 
 // Default 
-// Usage: triangle(width, height, direction, color)
+// Usage: $triangle(width, height, direction, color)
 // ------------------------------------------------------------ 
     
-triangle($width = 10px, $height = 10px, $direction = 'bottom', $color = #000)
-
-  // Base triangle styles
-  width 0
-  height 0
+$triangle($width = 10px, $height = 10px, $direction = 'bottom', $color = $gray-darker) 
   background 0
   border-style solid
+  height 0
+  width 0
 
   // Styles for each direction
+  // @stylint off
   directions = {
     top: {
       border-width: 0 ($width * .5) $height ($width * .5),
@@ -175,48 +177,48 @@ triangle($width = 10px, $height = 10px, $direction = 'bottom', $color = #000)
       border-width: $height $width 0 0,
       border-color: $color transparent transparent transparent
     }
-  }
+  } 
 
   // Mixin styles for passed direction
   styles = directions[$direction]
   {styles}
-  
+  // @stylint on
    
 // 
 // Line 
-// Usage: triangle-line(width, height, color-line, color-triangle, direction, position)  
-//------------------------------------------------------------ 
+// Usage: $triangle-line(width, height, color-line, color-triangle, direction, position)  
+// ------------------------------------------------------------ 
 
-triangle-line($width = '', $height = '', $color-line = '', $color-triangle = '', $direction = '', $position = '')  
+$triangle-line($width = '', $height = '', $color-line = '', $color-triangle = '', $direction = '', $position = '')  
 
   w = -($width / 2)   
     
   &:before,
   &:after 
-    content ""
+    content ''
     position absolute  
      
     if ($position == 'left')
-      left: 0  
+      left 0  
     
     else if ($position == 'right')
-      right: 0
+      right 0
      
     else
-      margin-left: w
-      left: 50%
+      left 50%
+      margin-left w
     
     if ($direction == 'bottom')
-      top: 100% 
+      top 100% 
 
     else 
-      bottom: 100%
+      bottom 100%
     
   &:before 
-    triangle($width, $height, $direction, $color-line) 
+    $triangle($width, $height, $direction, $color-line) 
   
   &:after  
-    triangle(($width - 1.5), ($height - 2), $direction, $color-triangle) 
+    $triangle(($width - 1.5), ($height - 2), $direction, $color-triangle) 
     margin-left (w + 2)
  
 
@@ -224,17 +226,16 @@ triangle-line($width = '', $height = '', $color-line = '', $color-triangle = '',
 // 5. Has Scrollbar
 // --------------------------------------------------
 
-has-scrollbar(color = #fff) 
+$has-scrollbar(color = $white) 
   overflow-y auto
   
   &::-webkit-scrollbar  
     width $space-sm 
  
   &::-webkit-scrollbar-track 
-    box-shadow inset 0 0 3px alpha(color, 0.8)   
     border-radius $space-sm  
+    box-shadow inset 0 0 3px alpha(color, .8)   
  
   &::-webkit-scrollbar-thumb 
-    border-radius $space-sm 
-    box-shadow inset 0 0 5px alpha(color, 0.7)   
-    
+    border-radius $space-sm  
+    box-shadow inset 0 0 5px alpha(color, .7)   

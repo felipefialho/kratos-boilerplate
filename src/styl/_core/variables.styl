@@ -99,14 +99,16 @@ $screen-xlg  = 1400px // Extra Large screen / wide desktop
 $screen-xxlg = 1900px // Extra Large screen / wide desktop
 
 // Rupture Settings
+// @stylint off
 rupture.mobile-cutoff  = $screen-sm
-rupture.tablet-cutoff  = $screen-md
-rupture.desktop-cutoff = $screen-lg
-rupture.hd-cutoff      = $screen-xlg
+rupture.tablet-cutoff  = $screen-md 
+rupture.desktop-cutoff = $screen-lg 
+rupture.hd-cutoff      = $screen-xlg 
 
 rupture.scale          = 0 $screen-xs $screen-sm $screen-md $screen-lg $screen-xlg $screen-xxlg
 rupture.scale-names    = '0' 'xs' 'sm' 'md' 'lg' 'xlg' 'hd'
 rupture.anti-overlap   = -1px
+// @stylint on
 
 
 //
@@ -119,5 +121,8 @@ $text-size = 2rem
 // 5. Grids
 // --------------------------------------------------
 
+// @stylint off
 @lost gutter 0
 @lost flexbox flex
+// @stylint on
+

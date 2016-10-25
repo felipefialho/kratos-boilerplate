@@ -134,16 +134,16 @@ blockquote
     margin-bottom 0
 
   cite
-    font(h2, bold) 
+    $font(h2, bold) 
     display block 
-    position relative
     margin-bottom $space-sm
+    position relative
 
     &:before
     &:after
       font-size 4.5rem
-      position absolute
       margin-top -10px
+      position absolute
 
     &:before
       content '“'
@@ -153,8 +153,8 @@ blockquote
       content '”'
 
   p
-    font(p2, light)
     margin-top $space-sm
+    $font(p2, light)
 
     &:before
         content '– '

@@ -1,0 +1,37 @@
+// ==================================================
+// Loading
+// ==================================================
+
+.loading  
+  $zindex = 80 
+  overflow hidden 
+  position relative 
+
+  &:before 
+    background rgba($white, .8) 
+    content '' 
+    position fixed 0   
+    z-index $zindex 
+   
+  &:after   
+    animation loading-bar-spinner .3s linear infinite  
+    border solid $space-xs transparent 
+    border-left-color rgba($brand-primary, 1) 
+    border-radius 50%  
+    border-top-color rgba($brand-primary, 1) 
+    $center(full)
+    content '' 
+    height $space-md  
+    width $space-md 
+    z-index $zindex + 1
+ 
+
+//
+// Animation
+// --------------------------------------------------
+ 
+@keyframes loading-bar-spinner  
+  0%    
+    transform rotate(0deg)    
+  100%  
+    transform rotate(360deg)  
