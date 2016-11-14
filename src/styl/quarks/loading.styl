@@ -3,7 +3,6 @@
 // ==================================================
 
 .loading  
-  $zindex = 80 
   overflow hidden 
   position relative 
 
@@ -11,7 +10,7 @@
     background rgba($white, .8) 
     content '' 
     position fixed 0   
-    z-index $zindex 
+    z-index $zindex-loading 
    
   &:after   
     $center(full)
@@ -23,7 +22,7 @@
     content '' 
     height $space-md  
     width $space-md 
-    z-index $zindex + 1
+    z-index $zindex-loading + 1
  
 
 //

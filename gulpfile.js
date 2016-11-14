@@ -24,7 +24,7 @@ const svgmin = require('gulp-svgmin');
 const svgstore = require('gulp-svgstore');
 const cheerio = require('gulp-cheerio');
 const mdcss = require('mdcss');
-const files = require('fs');
+const fs = require('fs');
 
 const srcPaths = {
   js: 'src/js/**/*.js',
@@ -124,12 +124,12 @@ gulp.task('js', () => {
 });
 
 gulp.task('read:data', () => {
-  files.readdir(srcPaths.data, (err, items) => {
+  fs.readdir(srcPaths.data, (err, items) => {
     for (var i = 0; i < items.length; i++) {
       files.push(items[i].split('.')[0]);
     }
     for (var i = 0; i < files.length; i++) {
-      dataJson[files[i]] = yaml.safeLoad(files.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
     }
   });
 });
