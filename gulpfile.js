@@ -1,29 +1,30 @@
 'use strict';
 
-import gulp from 'gulp';
-import plumber from 'gulp-plumber';
-import stylus from 'gulp-stylus';
-import poststylus from 'poststylus';
-import rucksack from 'rucksack-css';
-import fontMagician from 'postcss-font-magician';
-import gcmq from 'gulp-group-css-media-queries';
-import cssnano from 'gulp-cssnano';
-import sourcemaps from 'gulp-sourcemaps';
-import lost from 'lost';
-import rupture from 'rupture';
-import postcss from 'gulp-postcss';
-import concat from 'gulp-concat';
-import uglify from 'gulp-uglify';
-import pug from 'gulp-pug';
-import data from 'gulp-data';
-import yaml from 'js-yaml';
-import imagemin from 'gulp-imagemin';
-import browserSync from 'browser-sync';
-import svgmin from 'gulp-svgmin';
-import svgstore from 'gulp-svgstore';
-import cheerio from 'gulp-cheerio';
-import mdcss from 'mdcss';
-import fs from 'fs';
+const gulp = require('gulp');
+const babel = require('gulp-babel');
+const plumber = require('gulp-plumber');
+const stylus = require('gulp-stylus');
+const poststylus = require('poststylus');
+const rucksack = require('rucksack-css');
+const fontMagician = require('postcss-font-magician');
+const gcmq = require('gulp-group-css-media-queries');
+const cssnano = require('gulp-cssnano');
+const sourcemaps = require('gulp-sourcemaps');
+const lost = require('lost');
+const rupture = require('rupture');
+const postcss = require('gulp-postcss');
+const concat = require('gulp-concat');
+const uglify = require('gulp-uglify');
+const pug = require('gulp-pug');
+const data = require('gulp-data');
+const yaml = require('js-yaml');
+const imagemin = require('gulp-imagemin');
+const browserSync = require('browser-sync');
+const svgmin = require('gulp-svgmin');
+const svgstore = require('gulp-svgstore');
+const cheerio = require('gulp-cheerio');
+const mdcss = require('mdcss');
+const files = require('fs');
 
 const srcPaths = {
   js: 'src/js/**/*.js',
@@ -52,13 +53,10 @@ const buildPaths = {
 let dataJson = {}
 let files = []
 
-function onError(err) {
-  console.log(err);
-  this.emit('end');
-}
-
 gulp.task('css', () => {
   gulp.src(srcPaths.styl)
+    .pipe(plumber())
+    .pipe(sourcemaps.init())
     .pipe(stylus({
       use: [
         rupture(),
@@ -72,21 +70,38 @@ gulp.task('css', () => {
       ],
       compress: false
     }))
-    .on('error', onError)
+    .pipe(gcmq())
+    .pipe(cssnano())
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest(buildPaths.css));
+});
+
+gulp.task('styleguide', () => {
+  gulp.src(srcApp.styl)
+    .pipe(plumber())
+    .pipe(stylus({
+      use: [
+        rupture(),
+        poststylus([
+          lost(),
+          fontMagician(),
+          rucksack({
+            autoprefixer: true
+          })
+        ])
+      ],
+      compress: false
+    }))
     .pipe(postcss([
       mdcss({
         //logo: '',
-        destination: 'build/styleguide',
+        destination: 'public/styleguide',
         title: 'Styleguide',
         examples: {
           css: ['../css/style.css']
         },
       })
-    ]))
-    .on('error', onError)
-    .pipe(gcmq())
-    .pipe(cssnano())
-    .pipe(gulp.dest(buildPaths.css));
+    ]));
 });
 
 gulp.task('vendors', () => {
@@ -100,19 +115,21 @@ gulp.task('vendors', () => {
 gulp.task('js', () => {
   gulp.src(srcPaths.js)
     .pipe(plumber())
+    .pipe(sourcemaps.init())
+    .pipe(babel({ compact: false }))
     .pipe(concat('main.js'))
     .pipe(uglify())
-    .on('error', onError)
+    .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(buildPaths.js));
 });
 
 gulp.task('read:data', () => {
-  fs.readdir(srcPaths.data, (err, items) => {
+  files.readdir(srcPaths.data, (err, items) => {
     for (var i = 0; i < items.length; i++) {
       files.push(items[i].split('.')[0]);
     }
     for (var i = 0; i < files.length; i++) {
-      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+      dataJson[files[i]] = yaml.safeLoad(files.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
     }
   });
 });
@@ -122,7 +139,6 @@ gulp.task('html', () => {
     .pipe(plumber())
     .pipe(data(dataJson))
     .pipe(pug())
-    .on('error', onError)
     .pipe(gulp.dest(buildPaths.html));
 });
 

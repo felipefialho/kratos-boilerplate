@@ -7,14 +7,18 @@
     "url": "git+https://github.com/LFeh/kratos-boilerplate.git"
   },
   "scripts": {
-    "reporter": "./node_modules/.bin/parker ./build/css/",
+    "start": "gulp",
+    "test": "npm run lint && npm run reporter",
+    "setup": "npm i && npm run vendors",
+    "fix": "./node_modules/.bin/eslint ./ --fix",
+    "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "./node_modules/.bin/eslint ./src/",
     "lint:css": "./node_modules/.bin/stylint ./src/",
-    "fix": "./node_modules/.bin/eslint ./ --fix",
-    "precommit": "npm run lint:js && npm run lint:css",
-    "start": "gulp",
+    "reporter": "./node_modules/.bin/parker ./build/css/",
+    "styleguide": "gulp styleguide",
+    "precommit": "npm test",
     "build": "gulp build",
-    "test": "npm run lint && npm run reporter"
+    "vendors": "gulp vendors && cp ./node_modules/flexibility/flexibility.js public/js/"
   },
   "keywords": [
     "boilerplate"
@@ -33,6 +37,7 @@
     "browser-sync": "^2.12.3",
     "eslint": "^3.8.1",
     "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
     "gulp-cheerio": "^0.6.2",
     "gulp-concat": "^2.6.0",
     "gulp-cssnano": "^2.1.1",
@@ -55,11 +60,11 @@
     "parker": "0.0.10",
     "postcss-font-magician": "^1.4.0",
     "poststylus": "^0.2.3",
-    "rollup-plugin-babel": "^2.4.0",
-    "rollup-plugin-commonjs": "^5.0.4",
-    "rollup-plugin-node-resolve": "^2.0.0",
     "rucksack-css": "^0.8.5",
     "rupture": "^0.6.1",
-    "stylint": "^1.5.7"
+    "stylint": "^1.5.7",
+    "lazysizes": "^2.0.2",
+    "picturefill": "^3.0.2",
+    "flexibility": "^2.0.1"
   }
 }
