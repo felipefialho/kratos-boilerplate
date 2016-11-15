@@ -10,15 +10,14 @@
     "start": "gulp",
     "test": "npm run lint && npm run reporter",
     "setup": "npm i && npm run vendors",
-    "fix": "./node_modules/.bin/eslint ./ --fix",
+    "fix": "./node_modules/.bin/eslint ./src/ --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "./node_modules/.bin/eslint ./src/",
     "lint:css": "./node_modules/.bin/stylint ./src/",
-    "reporter": "./node_modules/.bin/parker ./build/css/",
-    "styleguide": "gulp styleguide",
+    "reporter": "./node_modules/.bin/parker ./build/css/*.css",
     "precommit": "npm test",
     "build": "gulp build",
-    "vendors": "gulp vendors && cp ./node_modules/flexibility/flexibility.js public/js/"
+    "vendors": "cp ./node_modules/flexibility/flexibility.js public/js/"
   },
   "keywords": [
     "boilerplate"
@@ -56,7 +55,6 @@
     "js-yaml": "^3.6.1",
     "lost": "^7.1.0",
     "mdcss": "^1.5.1",
-    "mdcss-theme-github": "^2.0.0",
     "parker": "0.0.10",
     "postcss-font-magician": "^1.4.0",
     "poststylus": "^0.2.3",

@@ -7,6 +7,7 @@
 This project uses Pug, Stylus, Gulp and Browsersync.
 
 Maybe you want to read about them:
+- [NPM Scripts](https://docs.npmjs.com/misc/scripts)
 - [GulpJS](http://gulpjs.com/)
 - [Pug](https://github.com/pugjs/pug)
 - [Stylus](http://learnboost.github.io/stylus/)
@@ -34,7 +35,7 @@ $ cd kratos-boilerplate
 $ npm install -g gulp
 
 # install dependencies
-$ npm install
+$ npm run setup
 
 ```
 
@@ -53,7 +54,7 @@ With the commands above, you have everything to start.
 │   │   └──  main.js
 │   ├── styleguide/
 │   ├── index.html
-├── gulpfile.babel.js
+├── gulpfile.js
 ├── package.json
 └── src
     ├── img/
@@ -61,10 +62,11 @@ With the commands above, you have everything to start.
     ├── js/
     ├── styl
     │   ├── _core/*.styl
+    │   ├── vendors/*.styl
+    │   ├── quarks/*.styl
     │   ├── atoms/*.styl
     │   ├── molecules/*.styl
     │   ├── organisms/*.styl
-    │   ├── widgets/*.styl
     │   ├── pages/*.styl
     │   └── style.styl
     └── pug
@@ -90,21 +92,18 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 
 ### Tasks
  
+- `npm start`: run all tasks and initialize watch for changes and a server
+- `npm test`: lint javascript and css 
+- `npm run setup`: install all dependencies
+- `npm run fix`: command to fix all eslint errors
+- `npm run reporter`: test css complexity
+- `npm run build`: run all tasks to build
+
 - `gulp js`: execute js files
 - `gulp html`: compile pug files
 - `gulp css`: compile stylus files
 - `gulp images`: compress image files
 - `gulp icons`: generate sprite of icons 
-- `gulp watch`: call for watch files
-
-- `npm start`: run all tasks and initialize watch for changes and a server
-- `npm test`: test the javascript and css complexity
-- `npm run lint:js`: test the javascript
-- `npm run lint:css`: test the stylus
-- `npm run fix`: command to fix all eslint errors
-- `npm run reporter`: test css complexity
-- `npm run build`: run all tasks to build
-
 
 ## Credits
 

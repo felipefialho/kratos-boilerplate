@@ -49,8 +49,12 @@ const buildApp = {
   svg: 'build/svg'
 };
 
-let dataJson = {}
-let files = []
+let dataJson = {};
+let files = [];
+
+gulp.task('clean', () => {
+  return del(buildApp.build);
+});
 
 gulp.task('css', () => {
   gulp.src(srcApp.styl)
@@ -73,10 +77,6 @@ gulp.task('css', () => {
     .pipe(cssnano())
     .pipe(sourcemaps.write('.'))
     .pipe(gulp.dest(buildApp.css));
-});
-
-gulp.task('clean', () => {
-  return del(buildApp.build)
 });
 
 gulp.task('styleguide', () => {
