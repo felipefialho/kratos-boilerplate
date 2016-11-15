@@ -25,36 +25,35 @@ const svgstore = require('gulp-svgstore');
 const cheerio = require('gulp-cheerio');
 const mdcss = require('mdcss');
 const fs = require('fs');
+const del = require('del');
 
-const srcPaths = {
-  js: 'src/js/**/*.js',
+const srcApp = {
+  js: [
+    'src/js/**/*.js'
+  ],
   css: 'src/styl/**/*.styl',
   styl: 'src/styl/style.styl',
   html: 'src/pug/*.pug',
   icons: 'src/svg/icons/*',
   svg: 'src/svg/',
   img: 'src/img/**/*',
-  data: 'src/data/',
-  vendors: [
-
-  ]
+  data: 'src/data/'
 };
 
-const buildPaths = {
+const buildApp = {
   build: 'build/**/*',
   js: 'build/js/',
   css: 'build/css/',
   html: 'build/',
   img: 'build/img',
-  svg: 'build/svg',
-  vendors: 'src/js/_core/'
+  svg: 'build/svg'
 };
 
 let dataJson = {}
 let files = []
 
 gulp.task('css', () => {
-  gulp.src(srcPaths.styl)
+  gulp.src(srcApp.styl)
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(stylus({
@@ -73,7 +72,11 @@ gulp.task('css', () => {
     .pipe(gcmq())
     .pipe(cssnano())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(buildPaths.css));
+    .pipe(gulp.dest(buildApp.css));
+});
+
+gulp.task('clean', () => {
+  return del(buildApp.build)
 });
 
 gulp.task('styleguide', () => {
@@ -95,7 +98,7 @@ gulp.task('styleguide', () => {
     .pipe(postcss([
       mdcss({
         //logo: '',
-        destination: 'public/styleguide',
+        destination: 'build/styleguide',
         title: 'Styleguide',
         examples: {
           css: ['../css/style.css']
@@ -104,66 +107,58 @@ gulp.task('styleguide', () => {
     ]));
 });
 
-gulp.task('vendors', () => {
-  gulp.src(srcPaths.vendors)
-    .pipe(plumber())
-    .pipe(concat('vendors.js'))
-    .pipe(uglify())
-    .pipe(gulp.dest(buildPaths.vendors));
-});
-
 gulp.task('js', () => {
-  gulp.src(srcPaths.js)
+  gulp.src(srcApp.js)
     .pipe(plumber())
     .pipe(sourcemaps.init())
-    .pipe(babel({ compact: false }))
+    .pipe(babel())
     .pipe(concat('main.js'))
     .pipe(uglify())
     .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest(buildPaths.js));
+    .pipe(gulp.dest(buildApp.js));
 });
 
 gulp.task('read:data', () => {
-  fs.readdir(srcPaths.data, (err, items) => {
+  fs.readdir(srcApp.data, (err, items) => {
     for (var i = 0; i < items.length; i++) {
       files.push(items[i].split('.')[0]);
     }
     for (var i = 0; i < files.length; i++) {
-      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcPaths.data + '/' + files[i] + '.yml', 'utf-8'));
+      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcApp.data + '/' + files[i] + '.yml', 'utf-8'));
     }
   });
 });
 
 gulp.task('html', () => {
-  gulp.src(srcPaths.html)
+  gulp.src(srcApp.html)
     .pipe(plumber())
     .pipe(data(dataJson))
     .pipe(pug())
-    .pipe(gulp.dest(buildPaths.html));
+    .pipe(gulp.dest(buildApp.html));
 });
 
 gulp.task('images', () => {
-  gulp.src(srcPaths.img)
+  gulp.src(srcApp.img)
     .pipe(plumber())
     .pipe(imagemin({
       optimizationLevel: 3,
       progressive: true,
       interlaced: true
     }))
-    .pipe(gulp.dest(buildPaths.img));
+    .pipe(gulp.dest(buildApp.img));
 });
 
 gulp.task('svg', () => {
-  gulp.src(srcPaths.svg)
+  gulp.src(srcApp.svg)
     .pipe(svgmin())
-    .pipe(gulp.dest(srcPaths.svg));
-  gulp.src(srcPaths.svg)
+    .pipe(gulp.dest(srcApp.svg));
+  gulp.src(srcApp.svg)
     .pipe(svgmin())
-    .pipe(gulp.dest(buildPaths.svg));
+    .pipe(gulp.dest(buildApp.svg));
 });
 
 gulp.task('icons', () => {
-  gulp.src(srcPaths.icons)
+  gulp.src(srcApp.icons)
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
     .pipe(cheerio({
@@ -174,21 +169,21 @@ gulp.task('icons', () => {
 
       parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest(buildPaths.svg));
+    .pipe(gulp.dest(buildApp.svg));
 });
 
 gulp.task('watch', () => {
-  gulp.watch(srcPaths.html, { debounceDelay: 300 }, ['html']);
-  gulp.watch(srcPaths.data + '**/*', { debounceDelay: 300 }, ['read:data', 'html']);
-  gulp.watch(srcPaths.css, ['css']);
-  gulp.watch(srcPaths.js, ['js']);
-  gulp.watch(srcPaths.img, ['images']);
-  gulp.watch(srcPaths.icons, ['icons']);
+  gulp.watch(srcApp.html, { debounceDelay: 300 }, ['html']);
+  gulp.watch(srcApp.data + '**/*', { debounceDelay: 300 }, ['read:data', 'html']);
+  gulp.watch(srcApp.css, ['css']);
+  gulp.watch(srcApp.js, ['js']);
+  gulp.watch(srcApp.img, ['images']);
+  gulp.watch(srcApp.icons, ['icons']);
 });
 
 gulp.task('browser-sync', () => {
   var files = [
-    buildPaths.build
+    buildApp.build
   ];
 
   browserSync.init(files, {
@@ -199,16 +194,18 @@ gulp.task('browser-sync', () => {
 
 });
 
-gulp.task('build', [
-  'css',
-  'read:data',
-  'html',
-  'vendors',
-  'js',
-  'images',
-  'svg',
-  'icons'
-]);
+gulp.task('build', ['clean'], () => {
+  gulp.start(
+    'styleguide',
+    'css',
+    'read:data',
+    'html',
+    'js',
+    'images',
+    'svg',
+    'icons'
+  );
+});
 
 gulp.task('default', [
   'build',
