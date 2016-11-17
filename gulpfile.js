@@ -57,7 +57,7 @@ gulp.task('clean', () => {
 });
 
 gulp.task('css', () => {
-  gulp.src(srcApp.styl)
+  return gulp.src(srcApp.styl)
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(stylus({
@@ -80,7 +80,7 @@ gulp.task('css', () => {
 });
 
 gulp.task('styleguide', () => {
-  gulp.src(srcApp.styl)
+  return gulp.src(srcApp.styl)
     .pipe(plumber())
     .pipe(stylus({
       use: [
@@ -108,7 +108,7 @@ gulp.task('styleguide', () => {
 });
 
 gulp.task('js', () => {
-  gulp.src(srcApp.js)
+  return gulp.src(srcApp.js)
     .pipe(plumber())
     .pipe(sourcemaps.init())
     .pipe(babel())
@@ -130,7 +130,7 @@ gulp.task('read:data', () => {
 });
 
 gulp.task('html', () => {
-  gulp.src(srcApp.html)
+  return gulp.src(srcApp.html)
     .pipe(plumber())
     .pipe(data(dataJson))
     .pipe(pug())
@@ -138,7 +138,7 @@ gulp.task('html', () => {
 });
 
 gulp.task('images', () => {
-  gulp.src(srcApp.img)
+  return gulp.src(srcApp.img)
     .pipe(plumber())
     .pipe(imagemin({
       optimizationLevel: 3,
@@ -149,20 +149,20 @@ gulp.task('images', () => {
 });
 
 gulp.task('svg', () => {
-  gulp.src(srcApp.svg)
+  return gulp.src(srcApp.svg)
     .pipe(svgmin())
     .pipe(gulp.dest(srcApp.svg));
-  gulp.src(srcApp.svg)
+  return gulp.src(srcApp.svg)
     .pipe(svgmin())
     .pipe(gulp.dest(buildApp.svg));
 });
 
 gulp.task('icons', () => {
-  gulp.src(srcApp.icons)
+  return gulp.src(srcApp.icons)
     .pipe(svgmin())
     .pipe(svgstore({ fileName: 'icons.svg', inlineSvg: true }))
     .pipe(cheerio({
-      run: function($, file) {
+      run: function ($, file) {
         $('svg').addClass('hide');
         $('[fill]').removeAttr('fill');
       },
