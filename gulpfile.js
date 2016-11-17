@@ -149,10 +149,10 @@ gulp.task('images', () => {
 });
 
 gulp.task('svg', () => {
-  return gulp.src(srcApp.svg)
+  gulp.src(srcApp.svg)
     .pipe(svgmin())
     .pipe(gulp.dest(srcApp.svg));
-  return gulp.src(srcApp.svg)
+  gulp.src(srcApp.svg)
     .pipe(svgmin())
     .pipe(gulp.dest(buildApp.svg));
 });
