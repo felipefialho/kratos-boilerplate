@@ -17,7 +17,7 @@
     "reporter": "./node_modules/.bin/parker ./build/css/*.css",
     "precommit": "npm test",
     "build": "gulp build",
-    "vendors": "cp ./node_modules/flexibility/flexibility.js public/js/"
+    "vendors": "cp ./node_modules/flexibility/flexibility.js build/js/"
   },
   "keywords": [
     "boilerplate"
