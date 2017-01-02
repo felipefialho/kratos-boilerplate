@@ -64,6 +64,12 @@
     "poststylus": "^0.2.3",
     "rucksack-css": "^0.8.5",
     "rupture": "^0.6.1",
-    "stylint": "^1.5.7"
+    "stylint": "^1.5.7",
+    "lazysizes": "^2.0.2",
+    "picturefill": "^3.0.2",
+    "flexibility": "^2.0.1"
+  },
+  "dependencies": {
+    "fs-promise": "^1.0.0"
   }
 }
