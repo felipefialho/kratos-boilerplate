@@ -17,7 +17,7 @@
     "reporter": "./node_modules/.bin/parker ./build/css/*.css",
     "precommit": "npm test",
     "build": "gulp build",
-    "vendors": "cp ./node_modules/flexibility/flexibility.js public/js/"
+    "vendors": "cp ./node_modules/flexibility/flexibility.js ./build/js/"
   },
   "keywords": [
     "boilerplate"
@@ -54,7 +54,7 @@
     "husky": "^0.11.4",
     "js-yaml": "^3.6.1",
     "lost": "^7.1.0",
-    "mdcss": "^1.5.1",
+    "mdcss": "^1.5.2",
     "parker": "0.0.10",
     "postcss-font-magician": "^1.4.0",
     "poststylus": "^0.2.3",
@@ -64,5 +64,8 @@
     "lazysizes": "^2.0.2",
     "picturefill": "^3.0.2",
     "flexibility": "^2.0.1"
+  },
+  "dependencies": {
+    "fs-promise": "^1.0.0"
   }
 }
