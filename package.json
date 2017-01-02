@@ -17,7 +17,7 @@
     "reporter": "./node_modules/.bin/parker ./build/css/*.css",
     "precommit": "npm test",
     "build": "gulp build",
-    "vendors": "cp ./node_modules/flexibility/flexibility.js public/js/"
+    "vendors": "cp ./node_modules/flexibility/flexibility.js ./build/js/"
   },
   "keywords": [
     "boilerplate"
@@ -35,6 +35,7 @@
     "babel-preset-es2015-rollup": "^1.1.1",
     "browser-sync": "^2.12.3",
     "eslint": "^3.8.1",
+    "flexibility": "^2.0.1",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
     "gulp-cheerio": "^0.6.2",
@@ -53,16 +54,16 @@
     "gulp-uglify": "^2.0.0",
     "husky": "^0.11.4",
     "js-yaml": "^3.6.1",
+    "lazysizes": "^2.0.2",
     "lost": "^7.1.0",
-    "mdcss": "^1.5.1",
+    "mdcss": "^1.5.2",
     "parker": "0.0.10",
+    "picturefill": "^3.0.2",
+    "postcss-flexibility": "^1.1.0",
     "postcss-font-magician": "^1.4.0",
     "poststylus": "^0.2.3",
     "rucksack-css": "^0.8.5",
     "rupture": "^0.6.1",
-    "stylint": "^1.5.7",
-    "lazysizes": "^2.0.2",
-    "picturefill": "^3.0.2",
-    "flexibility": "^2.0.1"
+    "stylint": "^1.5.7"
   }
 }
