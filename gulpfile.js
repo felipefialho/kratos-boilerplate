@@ -7,6 +7,7 @@ const stylus = require('gulp-stylus');
 const poststylus = require('poststylus');
 const rucksack = require('rucksack-css');
 const flexibility = require('postcss-flexibility');
+const prefixer = require('autoprefixer');
 const fontMagician = require('postcss-font-magician');
 const gcmq = require('gulp-group-css-media-queries');
 const cssnano = require('gulp-cssnano');
@@ -67,10 +68,9 @@ gulp.task('css', () => {
         poststylus([
           lost(),
           fontMagician(),
-          rucksack({
-            autoprefixer: true
-          }),
+          rucksack(),
           flexibility()
+          prefixer()
         ])
       ],
       compress: false
