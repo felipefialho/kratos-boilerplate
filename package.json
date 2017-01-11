@@ -13,7 +13,7 @@
   "scripts": {
     "start": "gulp",
     "test": "npm run lint && npm run reporter",
-    "setup": "npm i && npm run vendors",
+    "setup": "npm i && gulp build && npm run vendors",
     "fix": "./node_modules/.bin/eslint ./src/ --fix",
     "lint": "npm run lint:js && npm run lint:css",
     "lint:js": "./node_modules/.bin/eslint ./src/",

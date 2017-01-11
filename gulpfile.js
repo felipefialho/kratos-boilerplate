@@ -69,7 +69,7 @@ gulp.task('css', () => {
           lost(),
           fontMagician(),
           rucksack(),
-          flexibility()
+          flexibility(),
           prefixer()
         ])
       ],
