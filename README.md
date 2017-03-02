@@ -115,4 +115,4 @@ This boilerplate uses as a base the awesome [Qualy Boilerplate](https://github.c
 
 ## License
 
-[MIT License](http://felipefialho.mit-license.org/) © Luiz Felipe Tartarotti Fialho
+[MIT License](http://felipefialho.mit-license.org/) © Felipe Fialho
