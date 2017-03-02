@@ -4,6 +4,9 @@
 
 # Kratos Boilerplate
 
+[![license](https://img.shields.io/github/license/LFeh/kratos-boilerplate.svg)](./license.md)
+[![GitHub contributors](https://img.shields.io/github/contributors/LFeh/kratos-boilerplate.svg)](https://github.com/LFeh/frontend-challenges/graphs/contributors)
+
 This project uses Pug, Stylus, Gulp and Browsersync.
 
 Maybe you want to read about them:
