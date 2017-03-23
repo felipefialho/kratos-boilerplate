@@ -22,5 +22,8 @@ module.exports = {
       "error",
       "always"
     ]
+  },
+  "env": {
+  	"node": true
   }
 }; 

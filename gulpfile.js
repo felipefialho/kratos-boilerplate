@@ -19,7 +19,6 @@ const concat = require('gulp-concat');
 const uglify = require('gulp-uglify');
 const pug = require('gulp-pug');
 const data = require('gulp-data');
-const yaml = require('js-yaml');
 const imagemin = require('gulp-imagemin');
 const browserSync = require('browser-sync');
 const svgmin = require('gulp-svgmin');
@@ -39,7 +38,8 @@ const srcApp = {
   icons: 'src/svg/icons/*',
   svg: 'src/svg/',
   img: 'src/img/**/*',
-  data: 'src/data/'
+  data: 'src/data/',
+  helpers: 'src/helpers/'
 };
 
 const buildApp = {
@@ -121,13 +121,10 @@ gulp.task('js', () => {
 });
 
 gulp.task('read:data', () => {
+  const dataAdapter = require('./' + srcApp.helpers + 'dataAdapter');
   fs.readdir(srcApp.data, (err, items) => {
-    for (var i = 0; i < items.length; i++) {
-      files.push(items[i].split('.')[0]);
-    }
-    for (var i = 0; i < files.length; i++) {
-      dataJson[files[i]] = yaml.safeLoad(fs.readFileSync(srcApp.data + '/' + files[i] + '.yml', 'utf-8'));
-    }
+    files = items.map(item => item.split('.')[0]);
+    items.forEach((file, index) => dataJson[files[index]] = dataAdapter(srcApp.data + file));
   });
 });
 
