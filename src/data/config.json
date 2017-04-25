@@ -1,6 +1,21 @@
 {
   "title": "Kratos Boilerplate",
   "description": "A simple and fast boilerplate for static projects using Gulp, Pug, Stylus and PostCSS",
+  "social": {
+  	"twitter": {
+  		"card": "photo",
+  		"site": "",
+  		"url": "",
+  		"title": "",
+  		"image": ""
+  	},
+  	"open_graph": {
+  		"title": "",
+  		"description": "",
+  		"image": "",
+  		"url": ""
+  	}
+  },
   "analytics": {
   	"ga": "UA-000000-0"
   }
