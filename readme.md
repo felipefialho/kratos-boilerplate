@@ -101,6 +101,7 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 - `npm run fix`: command to fix all eslint errors
 - `npm run reporter`: test css complexity
 - `npm run build`: run all tasks to build
+- `npm run html`: compile html files
 - `npm run js`: compile js files
 - `npm run css`: compile css files
 - `npm run images`: compress imaages files
