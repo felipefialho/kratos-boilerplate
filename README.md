@@ -101,12 +101,11 @@ To view a reporter of CSS files, use a `npm run reporter` command.
 - `npm run fix`: command to fix all eslint errors
 - `npm run reporter`: test css complexity
 - `npm run build`: run all tasks to build
-
-- `gulp js`: execute js files
-- `gulp html`: compile pug files
-- `gulp css`: compile stylus files
-- `gulp images`: compress image files
-- `gulp icons`: generate sprite of icons 
+- `npm run js`: compile js files
+- `npm run css`: compile css files
+- `npm run images`: compress imaages files
+- `npm run svg`: compress svg files
+- `npom run icons`: generate sprite of icons 
 
 ## Credits
 
