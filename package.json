@@ -21,6 +21,7 @@
     "reporter": "./node_modules/.bin/parker ./build/css/*.css",
     "precommit": "npm test",
     "build": "gulp build",
+    "html": "gulp html",
     "js": "gulp js",
     "css": "gulp css",
     "images": "gulp images",
