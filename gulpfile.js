@@ -34,8 +34,8 @@ const srcApp = {
   css: 'src/styl/**/*.styl',
   styl: 'src/styl/style.styl',
   html: 'src/pug/*.pug',
-  icons: 'src/svg/icons/*',
-  svg: 'src/svg/',
+  icons: 'src/icons/*',
+  svg: 'src/svg/**/*',
   img: 'src/img/**/*',
   data: 'src/data/',
   helpers: 'src/helpers/'
@@ -47,7 +47,8 @@ const buildApp = {
   css: 'build/css/',
   html: 'build/',
   img: 'build/img',
-  svg: 'build/svg'
+  svg: 'build/svg',
+  icons: 'build/icons'
 };
 
 let dataJson = {};
@@ -147,9 +148,6 @@ gulp.task('images', () => {
 gulp.task('svg', () => {
   gulp.src(srcApp.svg)
     .pipe(svgmin())
-    .pipe(gulp.dest(srcApp.svg));
-  gulp.src(srcApp.svg)
-    .pipe(svgmin())
     .pipe(gulp.dest(buildApp.svg));
 });
 
@@ -162,10 +160,9 @@ gulp.task('icons', () => {
         $('svg').addClass('hide');
         $('[fill]').removeAttr('fill');
       },
-
       parserOptions: { xmlMode: true }
     }))
-    .pipe(gulp.dest(buildApp.svg));
+    .pipe(gulp.dest(buildApp.icons));
 });
 
 gulp.task('watch', () => {
