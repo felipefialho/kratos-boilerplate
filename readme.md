@@ -49,12 +49,11 @@ With the commands above, you have everything to start.
 ```sh
 ├── README.md
 ├── build
-│   ├── css
-│   │   └── style.css
+│   ├── css/
 │   ├── img/
 │   ├── svg/
-│   ├── js
-│   │   └──  main.js
+│   ├── icons/
+│   ├── js/
 │   ├── styleguide/
 │   ├── index.html
 ├── gulpfile.js
@@ -62,6 +61,7 @@ With the commands above, you have everything to start.
 └── src
     ├── img/
     ├── svg/
+│   ├── icons/
     ├── js/
     ├── styl
     │   ├── _core/*.styl
@@ -77,7 +77,6 @@ With the commands above, you have everything to start.
 ```
 
 Those folders and file will change during the project.
-
 
 ### Code Standards
 
