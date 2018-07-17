@@ -4,7 +4,7 @@
 
 # Kratos Boilerplate
 
-> A simple boilerplate for create a static PWA using Webpack, Pug, Stylus (or Sass) and PostCSS
+> A simple boilerplate for creating a static PWA using Webpack, Pug, Stylus (or Sass) and PostCSS
 
 ![Travis](https://img.shields.io/travis/LFeh/kratos.svg)
 [![license](https://img.shields.io/github/license/LFeh/kratos.svg)](./license.md)
