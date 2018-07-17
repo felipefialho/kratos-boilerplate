@@ -1,29 +1,26 @@
 module.exports = {
-  "env": {
-    "browser": true,
-    "es6": true,
-    "jquery": true
-  }, 
-  "globals": { 
-  }, 
-  "extends": "eslint:recommended",
-  "parserOptions": {
-    "sourceType": "module"
+  env: {
+    browser: true,
+    es6: true,
+    jquery: true
   },
-  "rules": {
-    "indent": ["error", 2 ],
-    "no-unused-vars": [1, {"vars": "local", "args": "none"}],
-    "linebreak-style": 'off',
-    "quotes": [
-      "error",
-      "single"
-    ],
-    "semi": [
-      "error",
-      "always"
-    ]
+  globals: {
+    "fetch": false,
+    "window": true,
+    "document": true
   },
-  "env": {
-  	"node": true
+  extends: 'eslint:recommended',
+  parserOptions: {
+    sourceType: 'module'
+  },
+  rules: {
+    indent: ['error', 2],
+    'no-unused-vars': [1, { vars: 'local', args: 'none' }],
+    'linebreak-style': 'off',
+    quotes: ['error', 'single'],
+    semi: ['error', 'always']
+  },
+  env: {
+    node: true
   }
-}; 
+};
