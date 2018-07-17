@@ -2,7 +2,7 @@
   "name": "kratos-boilerplate",
   "version": "2.0.0",
   "title": "Kratos Boilerplate",
-  "description": "A simple and fast boilerplate for static projects using Webpack, Pug, Stylus (or Sass) and PostCSS",
+  "description": "A simple boilerplate for create a static PWA using Webpack, Pug, Stylus (or Sass) and PostCSS",
   "homepage": "https://github.com/LFeh/kratos-boilerplate",
   "browserslist": [
     "> 1%",

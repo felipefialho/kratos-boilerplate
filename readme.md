@@ -4,7 +4,7 @@
 
 # Kratos Boilerplate
 
-> A simple and fast boilerplate for static projects using Webpack, Pug, Stylus (or Sass) and PostCSS
+> A simple boilerplate for create a static PWA using Webpack, Pug, Stylus (or Sass) and PostCSS
 
 ![Travis](https://img.shields.io/travis/LFeh/kratos.svg)
 [![license](https://img.shields.io/github/license/LFeh/kratos.svg)](./license.md)
@@ -21,6 +21,8 @@ $ npm start
 ```
 
 With the commands above, you have everything to start.
+
+The `app.config.json` file has all minimal config to create your scaffolding.
 
 ## About CSS
 
