@@ -1,4 +1,6 @@
-<img align="center" width="400" height="103,509" src="src/images/logo.png">
+<p align="center">
+  <img src="src/images/logo.png" width="200">
+</p>
 
 # Kratos Boilerplate
 

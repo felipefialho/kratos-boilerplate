@@ -1,16 +1,15 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const webpack = require('webpack');
-const rupture = require('rupture');
-const ImageminPlugin = require('imagemin-webpack-plugin').default;
-const CopyWebpackPlugin = require('copy-webpack-plugin');
-const WebpackPwaManifest = require('webpack-pwa-manifest');
-const OfflinePlugin = require('offline-plugin'); 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; 
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const PROD = process.env.NODE_ENV === 'production';
-const DEV = process.env.NODE_ENV === 'development';
 const config = require('./app.config.json');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const OfflinePlugin = require('offline-plugin'); 
+const path = require('path');
+const rupture = require('rupture');
+const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
+const webpack = require('webpack');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 
 const webapp = {
   name: config.title, 
@@ -32,6 +31,19 @@ const copyFiles = [
   { from: './src/favicon.ico', to: './' },
 ];
  
+const sw = { 
+  safeToUseOptionalCaches: true,
+  caches: {
+    main: ['index.html'],
+    additional: ['*.js?*']
+  },
+  navigateFallbackURL: '/',
+  autoUpdate: true,
+  responseStrategy: 'cache-first',
+  ServiceWorker: { events: true },
+  AppCache: { events: true }
+};
+
 const baseWebpack = {
   entry: {
     app: './src/app.js'
@@ -62,11 +74,7 @@ const baseWebpack = {
             },
           }
         ]
-      },
-      {
-        test: /\.json$/,
-        loader: 'json-loader'
-      },
+      }, 
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
         use: 'file-loader'
@@ -85,7 +93,7 @@ const baseWebpack = {
   }, 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+      'process.env.WEBPACK_MODE': JSON.stringify(process.env.WEBPACK_MODE)
     }),
     new CleanWebpackPlugin(['dist']),
     new HtmlWebpackPlugin({  
@@ -96,38 +104,34 @@ const baseWebpack = {
   ]
 };
 
-const sw = { 
-  safeToUseOptionalCaches: true,
-  caches: {
-    main: ['index.html'],
-    additional: ['*.js?*']
-  },
-  navigateFallbackURL: '/',
-  autoUpdate: true,
-  responseStrategy: 'cache-first',
-  ServiceWorker: { events: true },
-  AppCache: { events: true }
-};
-
-if (PROD) {
-  baseWebpack.plugins.push(new webpack.optimize.UglifyJsPlugin({})); 
+const prodStart = () => {
+  baseWebpack.optimization = {
+    minimizer: [ new UglifyJsPlugin() ],
+  }; 
   baseWebpack.plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }));
   baseWebpack.plugins.push(new BundleAnalyzerPlugin({analyzerMode: 'disabled'})); 
   baseWebpack.plugins.push(new WebpackPwaManifest(webapp));
   baseWebpack.plugins.push(new OfflinePlugin(sw));
-}  
+};
 
-if (DEV) {
+const devStart = () => {
   baseWebpack.devServer = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     open: true,
-    host: '0.0.0.0', 
-    disableHostCheck: true
+    port: 9000
   }; 
-}  
+};
 
-module.exports = (env) => {
+module.exports = (env, options) => {  
+  if (options.mode === 'production') {
+    prodStart();
+  }  
+
+  if (options.mode === 'development') { 
+    devStart();
+  }  
+
   return baseWebpack;
 };
- 
+  
