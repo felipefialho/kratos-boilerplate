@@ -50,6 +50,7 @@
     "imagemin-webpack-plugin": "^2.1.5",
     "json-loader": "^0.5.7",
     "lost": "^8.3.0",
+    "mini-css-extract-plugin": "^0.4.1",
     "offline-plugin": "^5.0.5",
     "postcss-font-magician": "^2.2.1",
     "postcss-loader": "^2.1.6",

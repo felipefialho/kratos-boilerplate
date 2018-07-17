@@ -4,6 +4,7 @@ const config = require('./app.config.json');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin'); 
 const path = require('path');
 const rupture = require('rupture');
@@ -43,7 +44,7 @@ const sw = {
   ServiceWorker: { events: true },
   AppCache: { events: true }
 };
-
+ 
 const baseWebpack = {
   entry: {
     app: './src/app.js'
@@ -61,7 +62,8 @@ const baseWebpack = {
       {
         test: /\.styl/,
         use: [
-          'style-loader', 
+          'style-loader',
+          MiniCssExtractPlugin.loader,
           { 
             loader: 'css-loader', 
             options: { importLoaders: 1 } 
@@ -71,7 +73,7 @@ const baseWebpack = {
             loader: 'stylus-loader',
             options: {
               use: [rupture()],
-            },
+            }
           }
         ]
       }, 
@@ -100,6 +102,9 @@ const baseWebpack = {
       hash: true, 
       template: './src/index.pug'
     }), 
+    new MiniCssExtractPlugin({
+      filename: 'style.[contenthash].css',
+    }),
     new CopyWebpackPlugin(copyFiles)
   ]
 };
