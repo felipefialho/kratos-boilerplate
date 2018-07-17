@@ -76,6 +76,21 @@ const baseWebpack = {
             }
           }
         ]
+      },  
+      {
+        test: /\.scss/,
+        use: [
+          'style-loader',
+          MiniCssExtractPlugin.loader,
+          { 
+            loader: 'css-loader', 
+            options: { importLoaders: 1 } 
+          },
+          'postcss-loader',
+          {
+            loader: 'sass-loader'
+          }
+        ]
       }, 
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,

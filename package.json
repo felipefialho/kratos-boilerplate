@@ -2,7 +2,7 @@
   "name": "kratos-boilerplate",
   "version": "2.0.0",
   "title": "Kratos Boilerplate",
-  "description": "A simple and fast boilerplate for static projects using Webpack, Pug, Stylus and PostCSS",
+  "description": "A simple and fast boilerplate for static projects using Webpack, Pug, Stylus (or Sass) and PostCSS",
   "homepage": "https://github.com/LFeh/kratos-boilerplate",
   "browserslist": [
     "> 1%",
@@ -32,7 +32,7 @@
     "noprompt": true
   },
   "dependencies": {
-    "webpack": "^4.16.1"
+    "rupture-sass": "^0.3.0"
   },
   "devDependencies": {
     "autoprefixer": "^9.0.0",
@@ -48,9 +48,9 @@
     "gh-pages-deploy": "^0.5.0",
     "html-webpack-plugin": "^3.2.0",
     "imagemin-webpack-plugin": "^2.1.5",
-    "json-loader": "^0.5.7",
     "lost": "^8.3.0",
     "mini-css-extract-plugin": "^0.4.1",
+    "node-sass": "^4.9.2",
     "offline-plugin": "^5.0.5",
     "postcss-font-magician": "^2.2.1",
     "postcss-loader": "^2.1.6",
@@ -58,11 +58,13 @@
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
     "rupture": "^0.7.1",
+    "sass-loader": "^7.0.3",
     "style-loader": "^0.21.0",
     "stylint": "^1.5.9",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^1.2.7",
+    "webpack": "^4.16.1",
     "webpack-bundle-analyzer": "^2.13.1",
     "webpack-cli": "^3.0.8",
     "webpack-dev-server": "^3.1.4",
