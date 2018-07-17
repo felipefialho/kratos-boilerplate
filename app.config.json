@@ -1,0 +1,10 @@
+{
+	"title": "Kratos Boilerplate",
+	"description": "A simple and fast boilerplate for static projects using Webpack, Pug, Stylus and PostCSS",
+	"url": "https://github.com/LFeh/kratos-boilerplate",
+	"logo": "images/logo.png", 
+	"theme_color": "#333333",
+	"short_name": "Kratos",
+	"ga": "x",
+	"twitter": "@lfeh"
+}
