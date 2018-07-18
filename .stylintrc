@@ -19,10 +19,6 @@
   },
   "duplicates": true,
   "efficient": "always",
-  "exclude": [ 
-    "./_src/app/styl/_core/variables.styl",
-    "./_src/cms/styl/_core/variables.styl"
-  ],
   "extendPref": false,
   "globalDupe": false,
   "groupOutputByFile": true,
