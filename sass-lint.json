@@ -1,0 +1,56 @@
+{
+  "options": {
+    "merge-default-rules": false
+  },
+  "files": {
+    "ignore": ["node_modules/**/*.s+(a|c)ss"]
+  },
+  "rules": {
+    "no-trailing-zero": 2,
+    "bem-depth": 3,
+    "brace-style": 2,
+    "declarations-before-nesting": 2,
+    "empty-line-between-blocks": 2,
+    "leading-zero": 0,
+    "one-declaration-per-line": 2,
+    "space-after-colon": 2,
+    "space-between-parens": 2,
+    "trailing-semicolon": 1,
+    "zero-unit": 1,
+    "no-color-keywords": 2,
+    "no-duplicate-properties": 0,
+    "space-before-brace": 1,
+    "extends-before-mixins": 2,
+    "extends-before-declarations": 2,
+    "placeholder-in-extend": 2,
+    "mixins-before-declarations": [
+      2,
+      {
+        "exclude": [
+          "breakpoint",
+          "above",
+          "below",
+          "between",
+          "mq"
+        ]
+      }
+    ],
+    "no-warn": 1,
+    "no-debug": 1,
+    "no-ids": 2,
+    "no-important": 2,
+    "hex-notation": [
+      2,
+      {
+        "style": "lowercase"
+      }
+    ],
+    "indentation": [
+      2,
+      {
+        "size": 2
+      }
+    ],
+    "property-sort-order": 2
+  }
+}
