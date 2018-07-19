@@ -32,8 +32,7 @@
     ],
     "noprompt": true
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.26.3",
@@ -54,6 +53,7 @@
     "offline-plugin": "^5.0.5",
     "postcss-font-magician": "^2.2.1",
     "postcss-loader": "^2.1.6",
+    "postcss-modules": "^1.1.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
