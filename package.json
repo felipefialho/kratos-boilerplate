@@ -1,8 +1,8 @@
 {
   "name": "kratos-boilerplate",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "title": "Kratos Boilerplate",
-  "description": "A simple boilerplate for creating a static PWA using Webpack, Pug, Stylus (or Sass) and PostCSS",
+  "description": "A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules",
   "homepage": "https://github.com/LFeh/kratos-boilerplate",
   "browserslist": [
     "> 1%",
@@ -32,8 +32,7 @@
     ],
     "noprompt": true
   },
-  "dependencies": {
-  },
+  "dependencies": {},
   "devDependencies": {
     "autoprefixer": "^9.0.0",
     "babel-core": "^6.26.3",
@@ -54,6 +53,7 @@
     "offline-plugin": "^5.0.5",
     "postcss-font-magician": "^2.2.1",
     "postcss-loader": "^2.1.6",
+    "postcss-modules": "^1.1.0",
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
