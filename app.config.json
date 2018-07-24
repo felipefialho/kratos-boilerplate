@@ -2,7 +2,7 @@
 	"title": "Kratos Boilerplate",
 	"description": "A simple boilerplate for creating a static PWA using Webpack, Pug, Stylus and PostCSS",
 	"url": "https://github.com/LFeh/kratos-boilerplate",
-	"logo": "./images/logo.png",
+	"logo": "images/logo.png",
 	"theme_color": "#333333",
 	"short_name": "Kratos",
 	"ga": "x",
