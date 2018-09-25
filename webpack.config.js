@@ -50,6 +50,7 @@ const baseWebpack = {
     app: './src/app.js'
   },
   output: {
+    publicPath: '/',
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js'
   },
