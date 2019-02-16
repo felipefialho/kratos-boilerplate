@@ -1,0 +1,23 @@
+// -------------------------------------------------
+// Welcome
+// -------------------------------------------------
+
+@import '../../styles/core';
+
+.host {
+  font-family: 'Open Sans';
+  margin-left: auto;
+  margin-right: auto;
+  max-width: $screen-md;
+  padding: $space;
+  text-align: center;
+}
+
+.title {
+  font-size: 4rem;
+  margin-bottom: $space;
+}
+
+.description {
+  font-size: 2rem;
+}

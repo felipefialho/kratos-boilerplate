@@ -1,0 +1,18 @@
+// ==================================================
+// Scaffolding
+// ==================================================
+
+@import 'styles/core';
+@import 'styles/reset';
+
+html {
+  -moz-osx-font-smoothing: auto;
+  -webkit-font-smoothing: auto;
+  font-size: 10px;
+  overflow-x: hidden;
+}
+
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden;
+}
