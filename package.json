@@ -18,7 +18,7 @@
     "build": "webpack --mode production",
     "deploy": "gh-pages-deploy",
     "analyzer": "npm run build && webpack-bundle-analyzer ./dist/stats.json",
-    "lint": "npm run lint:js && npm run lint:scss", 
+    "lint": "npm run lint:js && npm run lint:scss",
     "lint:scss": "sass-lint -c sass-lint.json 'src/**/*.scss' -v -q",
     "lint:js": "eslint ./src/",
     "fix:js": "eslint ./src/ --fix"
@@ -29,9 +29,6 @@
       "build"
     ],
     "noprompt": true
-  },
-  "dependencies": {
-    "npm-check-updates": "^2.13.0"
   },
   "devDependencies": {
     "@babel/core": "^7.3.3",
@@ -60,13 +57,10 @@
     "pug": "^2.0.3",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
-    "rupture": "^0.7.1",
     "rupture-sass": "^0.3.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.23.1", 
-    "stylus": "^0.54.5",
-    "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
     "webpack-bundle-analyzer": "^3.0.4",

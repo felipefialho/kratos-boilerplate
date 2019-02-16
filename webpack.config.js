@@ -6,8 +6,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const OfflinePlugin = require('offline-plugin'); 
-const path = require('path');
-const rupture = require('rupture');
+const path = require('path'); 
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
@@ -60,24 +59,6 @@ const baseWebpack = {
         test: /\.pug/,
         loader: 'pug-loader',
       },
-      {
-        test: /\.styl/,
-        use: [
-          'style-loader',
-          MiniCssExtractPlugin.loader,
-          { 
-            loader: 'css-loader', 
-            options: { importLoaders: 1 } 
-          },
-          'postcss-loader',
-          {
-            loader: 'stylus-loader',
-            options: {
-              use: [rupture()],
-            }
-          }
-        ]
-      },  
       {
         test: /\.scss/,
         use: [
