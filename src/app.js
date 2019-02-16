@@ -1,10 +1,9 @@
 import * as offline from 'offline-plugin/runtime';
-import './app.styl';
+import './app.scss';
 import './components/welcome/welcome.js';
 
-
 offline.install({
-  onUpdateReady: function() {
+  onUpdateReady: () => {
     offline.applyUpdate();
   }
 });
