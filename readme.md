@@ -42,9 +42,7 @@ The `app.config.json` file has all minimal config to create your scaffolding.
 
 ## About CSS
 
-### Stylus or Sass
-
-You can use Stylus or Sass as CSS preprocessor 😁
+This project use Sass as CSS preprocessor 😁
 
 ### Post CSS libs
 
