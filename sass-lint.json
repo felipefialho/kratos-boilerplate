@@ -38,7 +38,7 @@
     "no-warn": 1,
     "no-debug": 1,
     "no-ids": 2,
-    "no-important": 2,
+    "no-important": 1,
     "hex-notation": [
       2,
       {
