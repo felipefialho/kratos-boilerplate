@@ -9,14 +9,14 @@
 [![license](https://img.shields.io/github/license/LFeh/kratos-boilerplate.svg)](./license.md)
 [![GitHub contributors](https://img.shields.io/github/contributors/LFeh/kratos-boilerplate.svg)](https://github.com/LFeh/kratos-boilerplate/graphs/contributors)
 
-## Generate a new project with Yoeman
+## Generate a new project with Yeoman
 
-To make easy create a new projects, Kratos has a [generator using Yoeman](https://github.com/LFeh/generator-kratos-boilerplate)
+To make easy create a new projects, Kratos has a [generator using Yeoman](https://github.com/LFeh/generator-kratos-boilerplate)
 
 To use it:
 
 ```sh
-# install yoeman
+# install yeoman
 $ npm install -g yo
 
 # install kratos generator
