@@ -1,6 +1,6 @@
 {
   "name": "kratos-boilerplate",
-  "version": "2.3.0",
+  "version": "3.0.0",
   "title": "Kratos Boilerplate",
   "description": "A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules",
   "homepage": "https://github.com/LFeh/kratos-boilerplate",
@@ -18,8 +18,7 @@
     "build": "webpack --mode production",
     "deploy": "gh-pages-deploy",
     "analyzer": "npm run build && webpack-bundle-analyzer ./dist/stats.json",
-    "lint": "npm run lint:js && npm run lint:styl",
-    "lint:styl": "stylint src/**/*.styl",
+    "lint": "npm run lint:js && npm run lint:scss", 
     "lint:scss": "sass-lint -c sass-lint.json 'src/**/*.scss' -v -q",
     "lint:js": "eslint ./src/",
     "fix:js": "eslint ./src/ --fix"
@@ -65,8 +64,7 @@
     "rupture-sass": "^0.3.0",
     "sass-lint": "^1.12.1",
     "sass-loader": "^7.1.0",
-    "style-loader": "^0.23.1",
-    "stylint": "^1.5.9",
+    "style-loader": "^0.23.1", 
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
     "uglifyjs-webpack-plugin": "^2.1.1",
