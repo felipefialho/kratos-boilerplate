@@ -1,0 +1,49 @@
+// ==================================================
+// Variables
+//
+// 1. Spaces
+// 2. Media Queries
+// 3. zIndex 
+// ==================================================
+
+@import '~rupture-sass/rupture';
+@import 'palettes'; 
+
+// --------------------------------------------------
+// 1. Spaces
+// --------------------------------------------------
+
+$space-xxs    : .4rem;
+$space-xs     : .8rem;
+$space-sm     : 1.6rem;
+$space        : 2.4rem;
+$space-md     : 3.2rem;
+$space-lg     : 4.8rem;
+$space-xlg    : 6.4rem;
+$space-xxlg   : 9.6rem;
+ 
+// --------------------------------------------------
+// 2. Media Queries
+// --------------------------------------------------
+
+$screen-xs      : 360px;   // xExtra small screen / phone
+$screen-sm      : 768px;   // Extra small screen / phone
+$screen-md      : 960px;   // Small screen / tablet
+$screen-lg      : 1280px;  // Medium screen / desktop
+$screen-xlg     : 1920px;  // Extra Large screen / wide desktop
+ 
+$rupture: map-merge($rupture,
+  (
+    anti-overlap: -1px,
+    scale: 0 $screen-xs $screen-sm $screen-md $screen-lg,
+    scale-names: '0' 'xs' 'sm' 'md' 'lg' 'xlg'
+  )
+);
+
+// --------------------------------------------------
+// 3. zIndex
+// --------------------------------------------------
+
+$zindex-bg           : -1;
+$zindex-default      : 1; 
+ 

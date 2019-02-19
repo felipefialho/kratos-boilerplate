@@ -9,13 +9,30 @@
 [![license](https://img.shields.io/github/license/LFeh/kratos-boilerplate.svg)](./license.md)
 [![GitHub contributors](https://img.shields.io/github/contributors/LFeh/kratos-boilerplate.svg)](https://github.com/LFeh/kratos-boilerplate/graphs/contributors)
 
+## Generate a new project with Yeoman
+
+To make easy create a new projects, Kratos has a [generator using Yeoman](https://github.com/LFeh/generator-kratos-boilerplate)
+
+To use it:
+
+```sh
+# install yeoman
+$ npm install -g yo
+
+# install kratos generator
+$ npm install -g generator-kratos-boilerplate
+
+# generate a new project
+$ yo kratos-boilerplate
+```
+
 ## Getting Started
 
 ```sh
 # install dependencies
 $ npm i
 
-# Run the project
+# run the project
 $ npm start
 ```
 
@@ -25,9 +42,7 @@ The `app.config.json` file has all minimal config to create your scaffolding.
 
 ## About CSS
 
-### Stylus or Sass
-
-You can use Stylus or Sass as CSS preprocessor 😁
+This project use Sass as CSS preprocessor 😁
 
 ### Post CSS libs
 

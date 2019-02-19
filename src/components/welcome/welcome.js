@@ -1,1 +1,1 @@
-import './welcome.styl';
+import './welcome.scss';
