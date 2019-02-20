@@ -6,6 +6,7 @@
 
 > A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules
 
+[![NPM Version][npm-badge]][npm-url]
 [![license](https://img.shields.io/github/license/LFeh/kratos-boilerplate.svg)](./license.md)
 [![GitHub contributors](https://img.shields.io/github/contributors/LFeh/kratos-boilerplate.svg)](https://github.com/LFeh/kratos-boilerplate/graphs/contributors)
 
@@ -92,3 +93,6 @@ After the transformation it will become like this
 ## License
 
 MIT License © Felipe Fialho
+
+[npm-badge]: https://img.shields.io/npm/v/generator-kratos-boilerplate.svg
+[npm-url]: https://www.npmjs.com/package/generator-kratos-boilerplate
