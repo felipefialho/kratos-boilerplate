@@ -94,7 +94,9 @@ const baseWebpack = {
     new webpack.DefinePlugin({
       'process.env.WEBPACK_MODE': JSON.stringify(process.env.WEBPACK_MODE)
     }),
-    new CleanWebpackPlugin(['dist']),
+    new CleanWebpackPlugin({
+      cleanOnceBeforeBuildPatterns: ['dist']
+    }),
     new HtmlWebpackPlugin({  
       hash: true, 
       template: './src/index.pug'
