@@ -1,18 +1,19 @@
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin; 
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const config = require('./app.config.json');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const OfflinePlugin = require('offline-plugin'); 
-const path = require('path'); 
+const OfflinePlugin = require('offline-plugin');
+const path = require('path');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const webpack = require('webpack');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 
+const config = require('./app.config.json');
+
 const webapp = {
-  name: config.title, 
+  name: config.title,
   short_name: config.short_name,
   description: config.description,
   background_color: config.theme_color,
@@ -26,12 +27,12 @@ const webapp = {
   ]
 };
 
-const copyFiles = [ 
+const copyFiles = [
   { from: './src/images/', to: './images' },
   { from: './src/favicon.ico', to: './' },
 ];
- 
-const sw = { 
+
+const sw = {
   safeToUseOptionalCaches: true,
   caches: {
     main: ['index.html'],
@@ -43,7 +44,7 @@ const sw = {
   ServiceWorker: { events: true },
   AppCache: { events: true }
 };
- 
+
 const baseWebpack = {
   entry: {
     app: './src/app.js'
@@ -64,16 +65,16 @@ const baseWebpack = {
         use: [
           'style-loader',
           MiniCssExtractPlugin.loader,
-          { 
-            loader: 'css-loader', 
-            options: { importLoaders: 1 } 
+          {
+            loader: 'css-loader',
+            options: { importLoaders: 1 }
           },
           'postcss-loader',
           {
             loader: 'sass-loader'
           }
         ]
-      }, 
+      },
       {
         test: /\.jpe?g$|\.gif$|\.png$|\.svg$/,
         use: 'file-loader'
@@ -89,7 +90,7 @@ const baseWebpack = {
         }
       }
     ]
-  }, 
+  },
   plugins: [
     new webpack.DefinePlugin({
       'process.env.WEBPACK_MODE': JSON.stringify(process.env.WEBPACK_MODE)
@@ -97,10 +98,10 @@ const baseWebpack = {
     new CleanWebpackPlugin({
       cleanOnceBeforeBuildPatterns: ['dist']
     }),
-    new HtmlWebpackPlugin({  
-      hash: true, 
+    new HtmlWebpackPlugin({
+      hash: true,
       template: './src/index.pug'
-    }), 
+    }),
     new MiniCssExtractPlugin({
       filename: 'style.[contenthash].css',
     }),
@@ -111,9 +112,9 @@ const baseWebpack = {
 const prodStart = () => {
   baseWebpack.optimization = {
     minimizer: [ new UglifyJsPlugin() ],
-  }; 
+  };
   baseWebpack.plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }));
-  baseWebpack.plugins.push(new BundleAnalyzerPlugin({analyzerMode: 'disabled'})); 
+  baseWebpack.plugins.push(new BundleAnalyzerPlugin({analyzerMode: 'disabled'}));
   baseWebpack.plugins.push(new WebpackPwaManifest(webapp));
   baseWebpack.plugins.push(new OfflinePlugin(sw));
 };
@@ -124,18 +125,18 @@ const devStart = () => {
     compress: true,
     open: true,
     port: 9000
-  }; 
+  };
 };
 
-module.exports = (env, options) => {  
+module.exports = (env, options) => {
   if (options.mode === 'production') {
     prodStart();
-  }  
+  }
 
-  if (options.mode === 'development') { 
+  if (options.mode === 'development') {
     devStart();
-  }  
+  }
 
   return baseWebpack;
 };
-  
+
