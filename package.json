@@ -1,6 +1,6 @@
 {
   "name": "kratos-boilerplate",
-  "version": "3.0.3",
+  "version": "3.0.4",
   "title": "Kratos Boilerplate",
   "description": "A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules",
   "homepage": "https://github.com/felipefialho/kratos-boilerplate",
