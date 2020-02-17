@@ -64,7 +64,7 @@
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
     "webpack-bundle-analyzer": "^3.0.4",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.1.14",
     "webpack-pwa-manifest": "^4.0.0"
   },
