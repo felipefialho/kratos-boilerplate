@@ -59,11 +59,11 @@
     "rucksack-css": "^1.0.2",
     "rupture-sass": "^0.3.0",
     "sass-lint": "^1.12.1",
-    "sass-loader": "^7.1.0",
+    "sass-loader": "^7.3.1",
     "style-loader": "^1.1.3",
     "uglifyjs-webpack-plugin": "^2.1.1",
     "webpack": "^4.29.4",
-    "webpack-bundle-analyzer": "^3.0.4",
+    "webpack-bundle-analyzer": "^3.6.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.1.14",
     "webpack-pwa-manifest": "^4.0.0"
