@@ -1,5 +1,5 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ImageminPlugin = require('imagemin-webpack-plugin').default;
@@ -96,7 +96,7 @@ const baseWebpack = {
       'process.env.WEBPACK_MODE': JSON.stringify(process.env.WEBPACK_MODE)
     }),
     new CleanWebpackPlugin({
-      cleanOnceBeforeBuildPatterns: ['dist']
+      cleanAfterEveryBuildPatterns: ['dist']
     }),
     new HtmlWebpackPlugin({
       hash: true,
@@ -111,10 +111,10 @@ const baseWebpack = {
 
 const prodStart = () => {
   baseWebpack.optimization = {
-    minimizer: [ new UglifyJsPlugin() ],
+    minimizer: [new UglifyJsPlugin()],
   };
   baseWebpack.plugins.push(new ImageminPlugin({ test: /\.(jpe?g|png|gif|svg)$/i }));
-  baseWebpack.plugins.push(new BundleAnalyzerPlugin({analyzerMode: 'disabled'}));
+  baseWebpack.plugins.push(new BundleAnalyzerPlugin({ analyzerMode: 'disabled' }));
   baseWebpack.plugins.push(new WebpackPwaManifest(webapp));
   baseWebpack.plugins.push(new OfflinePlugin(sw));
 };
