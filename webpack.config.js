@@ -27,10 +27,12 @@ const webapp = {
   ]
 };
 
-const copyFiles = [
-  { from: './src/images/', to: './images' },
-  { from: './src/favicon.ico', to: './' },
-];
+const copyFiles = {
+  patterns: [
+    { from: './src/images/', to: './images' },
+    { from: './src/favicon.ico', to: './' },
+  ],
+};
 
 const sw = {
   safeToUseOptionalCaches: true,
