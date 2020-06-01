@@ -31,7 +31,7 @@
     "noprompt": true
   },
   "devDependencies": {
-    "@babel/core": "^7.9.6",
+    "@babel/core": "^7.10.2",
     "@babel/preset-env": "^7.9.6",
     "autoprefixer": "^9.7.6",
     "babel-core": "^6.26.3",
