@@ -53,7 +53,7 @@
     "offline-plugin": "^5.0.7",
     "postcss": "^8.1.10",
     "postcss-font-magician": "^2.3.1",
-    "postcss-loader": "^4.0.4",
+    "postcss-loader": "^4.1.0",
     "postcss-modules": "^3.2.2",
     "pug": "^2.0.4",
     "pug-loader": "^2.4.0",
