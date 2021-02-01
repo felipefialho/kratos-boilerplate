@@ -64,8 +64,8 @@
     "style-loader": "^2.0.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "webpack": "^4.46.0",
-    "webpack-bundle-analyzer": "^4.2.0",
-    "webpack-cli": "^4.4.0",
+    "webpack-bundle-analyzer": "^4.4.0",
+    "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
     "webpack-pwa-manifest": "^4.3.0"
   },
