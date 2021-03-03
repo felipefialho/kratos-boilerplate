@@ -55,7 +55,7 @@
     "postcss-font-magician": "^3.0.0",
     "postcss-loader": "^4.2.0",
     "postcss-modules": "^4.0.0",
-    "pug": "^2.0.4",
+    "pug": "^3.0.1",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
     "rupture-sass": "^0.3.0",
