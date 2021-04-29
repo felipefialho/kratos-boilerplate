@@ -1,0 +1,18 @@
+version: 2
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: monthly
+    time: "08:00"
+  open-pull-requests-limit: 99
+  ignore:
+  - dependency-name: node-sass
+    versions:
+    - ">= 5.0.a, < 5.1"
+  - dependency-name: pug-code-gen
+    versions:
+    - 2.0.3
+  - dependency-name: webpack-cli
+    versions:
+    - 4.5.0
