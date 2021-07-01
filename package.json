@@ -51,7 +51,7 @@
     "mini-css-extract-plugin": "^1.6.0",
     "node-sass": "5.0.0",
     "offline-plugin": "^5.0.7",
-    "postcss": "^8.3.0",
+    "postcss": "^8.3.5",
     "postcss-font-magician": "^3.0.0",
     "postcss-loader": "^4.3.0",
     "postcss-modules": "^4.0.0",
