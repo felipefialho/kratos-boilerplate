@@ -48,7 +48,7 @@
     "husky": "^6.0.0",
     "imagemin-webpack-plugin": "^2.4.2",
     "lost": "^8.3.1",
-    "mini-css-extract-plugin": "^1.6.0",
+    "mini-css-extract-plugin": "^1.6.2",
     "node-sass": "5.0.0",
     "offline-plugin": "^5.0.7",
     "postcss": "^8.3.0",
