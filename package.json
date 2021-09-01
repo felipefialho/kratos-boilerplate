@@ -32,7 +32,7 @@
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
-    "@babel/preset-env": "^7.14.9",
+    "@babel/preset-env": "^7.15.0",
     "autoprefixer": "^10.3.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^8.2.2",
