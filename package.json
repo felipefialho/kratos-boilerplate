@@ -58,7 +58,7 @@
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
-    "rupture-sass": "^0.3.0",
+    "rupture-sass": "^1.0.0",
     "sass-lint": "^1.13.1",
     "sass-loader": "^10.1.1",
     "style-loader": "^2.0.0",
