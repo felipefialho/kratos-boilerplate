@@ -6,7 +6,6 @@
 
 > A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules
 
-[![NPM Version][npm-badge]][npm-url]
 [![license](https://img.shields.io/github/license/felipefialho/kratos-boilerplate.svg)](./license.md)
 [![GitHub contributors](https://img.shields.io/github/contributors/felipefialho/kratos-boilerplate.svg)](https://github.com/felipefialho/kratos-boilerplate/graphs/contributors)
 
@@ -56,14 +55,7 @@ To make easier create your components and avoid a lot of problems, it boilerplat
 Example
 
 ```css
-.host
-  text-align center
-
-.title
-  font-size 4rem
-
-.description
-  font-size 2rem
+.host text-align center .title font-size 4rem .description font-size 2rem;
 ```
 
 After the transformation it will become like this
