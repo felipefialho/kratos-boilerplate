@@ -4,14 +4,19 @@
   "title": "Kratos Boilerplate",
   "description": "A simple boilerplate for creating a static PWA using Webpack, Pug, PostCSS and CSS Modules",
   "homepage": "https://github.com/felipefialho/kratos-boilerplate",
+  "author": {
+    "name": "Felipe Fialho",
+    "email": "hi@felipefialho.com",
+    "url": "https://www.felipefialho.com"
+  },
   "browserslist": [
     "> 1%",
     "last 2 versions"
   ],
-  "author": {
-    "name": "Felipe Fialho",
-    "email": "hi@felipefialho.com",
-    "url": "http://www.felipefialho.com"
+  "engines": {
+    "npm": "please-use-yarn",
+    "yarn": ">= 1.20",
+    "node": ">= 16.0.0"
   },
   "scripts": {
     "start": "webpack serve --mode development",
