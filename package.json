@@ -54,7 +54,7 @@
     "imagemin-webpack-plugin": "^2.4.2",
     "lost": "^8.3.1",
     "mini-css-extract-plugin": "^1.6.2",
-    "node-sass": "^7.0.1",
+    "node-sass": "^6.0.1",
     "offline-plugin": "^5.0.7",
     "postcss": "^8.4.5",
     "postcss-font-magician": "^3.0.0",
