@@ -59,7 +59,7 @@
     "postcss": "^8.4.5",
     "postcss-font-magician": "^3.0.0",
     "postcss-loader": "^4.3.0",
-    "postcss-modules": "^4.2.2",
+    "postcss-modules": "^4.3.0",
     "pug": "^3.0.2",
     "pug-loader": "^2.4.0",
     "rucksack-css": "^1.0.2",
