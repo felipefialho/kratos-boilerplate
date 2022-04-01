@@ -45,7 +45,7 @@
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
-    "cssnano": "^5.0.17",
+    "cssnano": "^5.1.5",
     "eslint": "^8.10.0",
     "file-loader": "6.2.0",
     "gh-pages-deploy": "^0.5.1",
