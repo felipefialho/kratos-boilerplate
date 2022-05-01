@@ -40,7 +40,7 @@
     "@babel/preset-env": "^7.16.11",
     "autoprefixer": "^10.4.4",
     "babel-core": "^6.26.3",
-    "babel-loader": "^8.2.4",
+    "babel-loader": "^8.2.5",
     "babel-preset-env": "^1.7.0",
     "clean-webpack-plugin": "^4.0.0",
     "copy-webpack-plugin": "^6.4.1",
