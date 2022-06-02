@@ -35,7 +35,7 @@
     ],
     "noprompt": true
   },
-  "devDependencies": { 
+  "devDependencies": {
     "@babel/core": "^7.17.10",
     "@babel/preset-env": "^7.18.2",
     "autoprefixer": "^10.4.5",
@@ -46,7 +46,7 @@
     "copy-webpack-plugin": "^6.4.1",
     "css-loader": "^5.2.7",
     "cssnano": "^5.1.10",
-    "eslint": "^8.14.0",
+    "eslint": "^8.16.0",
     "file-loader": "6.2.0",
     "gh-pages-deploy": "^0.5.1",
     "html-webpack-plugin": "^4.5.2",
