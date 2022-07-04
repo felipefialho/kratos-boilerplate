@@ -7463,13 +7463,12 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lost@^8.3.1:
-  version "8.3.1"
-  resolved "https://registry.npmjs.org/lost/-/lost-8.3.1.tgz"
-  integrity sha512-J+TgSVo9VVf4Y9lVGaI5DMN0BMqQTIabEJuEQGlK4vte+EZq9eDcvwGx9DfrkCUMqs0CvzAPE5dsnj18Zbjf6g==
+lost@^9.0.0:
+  version "9.0.0"
+  resolved "https://registry.yarnpkg.com/lost/-/lost-9.0.0.tgz#4b133933839071ec4689f7cf8a7148b45257916a"
+  integrity sha512-BOuIOhPceQoFZBVqyd/GT4YeXIsCCH/Fe/wA1AK/69JZXw5Qk0yL6Elr1hfhk6mWJHnmRym73FXg0EPS5wUaaQ==
   dependencies:
     object-assign "^4.1.1"
-    postcss "7.0.14"
 
 loud-rejection@^1.0.0:
   version "1.6.0"
@@ -9317,15 +9316,6 @@ postcss-will-change@^2.0.0:
   integrity sha1-z/CRqHoDhrqx8yp8+n951rdz4QA=
   dependencies:
     postcss "^6.0.1"
-
-postcss@7.0.14:
-  version "7.0.14"
-  resolved "https://registry.npmjs.org/postcss/-/postcss-7.0.14.tgz"
-  integrity sha512-NsbD6XUUMZvBxtQAJuWDJeeC4QFsmWsfozWxCJPWf3M55K9iu2iMDaKqyoOdTJ1R4usBXuxlVFAIo8rZPQD4Bg==
-  dependencies:
-    chalk "^2.4.2"
-    source-map "^0.6.1"
-    supports-color "^6.1.0"
 
 postcss@^4.1.16:
   version "4.1.16"
