@@ -52,7 +52,7 @@
     "html-webpack-plugin": "^4.5.2",
     "husky": "^8.0.1",
     "imagemin-webpack-plugin": "^2.4.2",
-    "lost": "^9.0.0",
+    "lost": "^9.0.1",
     "mini-css-extract-plugin": "^1.6.2",
     "node-sass": "^7.0.3",
     "offline-plugin": "^5.0.7",

@@ -7440,10 +7440,10 @@ loose-envify@^1.0.0:
   dependencies:
     js-tokens "^3.0.0 || ^4.0.0"
 
-lost@^9.0.0:
-  version "9.0.0"
-  resolved "https://registry.yarnpkg.com/lost/-/lost-9.0.0.tgz#4b133933839071ec4689f7cf8a7148b45257916a"
-  integrity sha512-BOuIOhPceQoFZBVqyd/GT4YeXIsCCH/Fe/wA1AK/69JZXw5Qk0yL6Elr1hfhk6mWJHnmRym73FXg0EPS5wUaaQ==
+lost@^9.0.1:
+  version "9.0.1"
+  resolved "https://registry.yarnpkg.com/lost/-/lost-9.0.1.tgz#a3d89e4d50fe7ea3a50021569e110da41470a423"
+  integrity sha512-/LmgC9pSYB/exL/tG++5QzdcJra0EFezOukGT+Fe4wYJIw477pFqmNaTZlwL7lD751mkGvMg9ef4ktrhG0ojRg==
   dependencies:
     object-assign "^4.1.1"
 
