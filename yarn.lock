@@ -3485,6 +3485,11 @@ caniuse-lite@^1.0.0, caniuse-lite@^1.0.30000792, caniuse-lite@^1.0.30000805, can
   resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001525.tgz#d2e8fdec6116ffa36284ca2c33ef6d53612fe1c8"
   integrity sha512-/3z+wB4icFt3r0USMwxujAqRvaD/B7rvGTsKhbhSQErVrJvkZCLhgNLJxU8MevahQVH6hCU9FsHdNUFbiwmE7Q==
 
+caniuse-lite@^1.0.30001449:
+  version "1.0.30001534"
+  resolved "https://registry.yarnpkg.com/caniuse-lite/-/caniuse-lite-1.0.30001534.tgz#f24a9b2a6d39630bac5c132b5dff89b39a12e7dd"
+  integrity sha512-vlPVrhsCS7XaSh2VvWluIQEzVhefrUQcEsQWSS5A5V+dM07uv1qHeQzAOTGIMy9i3e9bH15+muvI/UHojVgS/Q==
+
 caw@^2.0.0, caw@^2.0.1:
   version "2.0.1"
   resolved "https://registry.npmjs.org/caw/-/caw-2.0.1.tgz"
@@ -4672,6 +4677,11 @@ electron-to-chromium@^1.3.30, electron-to-chromium@^1.3.47:
   version "1.3.793"
   resolved "https://registry.npmjs.org/electron-to-chromium/-/electron-to-chromium-1.3.793.tgz"
   integrity sha512-l9NrGV6Mr4ov5mayYPvIWcwklNw5ROmy6rllzz9dCACw9nKE5y+s5uQk+CBJMetxrWZ6QJFsvEfG6WDcH2IGUg==
+
+electron-to-chromium@^1.4.284:
+  version "1.4.520"
+  resolved "https://registry.yarnpkg.com/electron-to-chromium/-/electron-to-chromium-1.4.520.tgz#c19c25a10d87bd88a9aae2b76cae9235a50c2994"
+  integrity sha512-Frfus2VpYADsrh1lB3v/ft/WVFlVzOIm+Q0p7U7VqHI6qr7NWHYKe+Wif3W50n7JAFoBsWVsoU0+qDks6WQ60g==
 
 electron-to-chromium@^1.4.477:
   version "1.4.508"
@@ -8221,7 +8231,7 @@ node-libs-browser@^2.2.1:
     util "^0.11.0"
     vm-browserify "^1.0.1"
 
-node-releases@^2.0.13:
+node-releases@^2.0.13, node-releases@^2.0.8:
   version "2.0.13"
   resolved "https://registry.yarnpkg.com/node-releases/-/node-releases-2.0.13.tgz#d5ed1627c23e3461e819b02e57b75e4899b1c81d"
   integrity sha512-uYr7J37ae/ORWdZeQ1xxMJe3NtdmqMC/JZK+geofDrkLUApKRHPd18/TxtBOJ4A0/+uUIliorNrfYV6s1b02eQ==
@@ -10414,9 +10424,9 @@ semver-truncate@^1.1.2:
     semver "^5.3.0"
 
 "semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.5.0, semver@^5.6.0:
-  version "5.7.1"
-  resolved "https://registry.npmjs.org/semver/-/semver-5.7.1.tgz"
-  integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
+  version "5.7.2"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.2.tgz#48d55db737c3287cd4835e17fa13feace1c41ef8"
+  integrity sha512-cBznnQ9KjJqU67B52RMC65CMarK2600WFnbkcaiwWq3xy/5haFJlshgnpjovMVJ+Hff49d8GEn0b87C5pDQ10g==
 
 semver@^6.0.0, semver@^6.3.0, semver@^6.3.1:
   version "6.3.1"
@@ -10424,9 +10434,9 @@ semver@^6.0.0, semver@^6.3.0, semver@^6.3.1:
   integrity sha512-BR7VvDCVHO+q2xBEWskxS6DJE1qRnb7DxzUrogb71CWoSficBxYsiAGd+Kl0mmq/MprG9yArRkyrQxTO6XjMzA==
 
 semver@^7.3.2, semver@^7.3.4, semver@^7.3.5:
-  version "7.3.5"
-  resolved "https://registry.npmjs.org/semver/-/semver-7.3.5.tgz"
-  integrity sha512-PoeGJYh8HK4BTO/a9Tf6ZG3veo/A7ZVsYrSA6J8ny9nb3B1VrpkuN+z9OE5wfE5p6H4LchYZsegiQgbJD94ZFQ==
+  version "7.5.4"
+  resolved "https://registry.yarnpkg.com/semver/-/semver-7.5.4.tgz#483986ec4ed38e1c6c48c34894a9182dbff68a6e"
+  integrity sha512-1bCSESV6Pv+i21Hvpxp3Dx+pSD8lIPt8uVjRrxAUt/nbswYc+tK6Y2btiULjd4+fnq15PX+nqQDC7Oft7WkwcA==
   dependencies:
     lru-cache "^6.0.0"
 
@@ -11610,7 +11620,7 @@ upath@^1.1.1:
   resolved "https://registry.npmjs.org/upath/-/upath-1.2.0.tgz"
   integrity sha512-aZwGpamFO61g3OlfT7OQCHqhGnW43ieH9WZeP7QxN/G/jS4jfqUkZxoryvJgVPEcrl5NL/ggHsSmLMHuH64Lhg==
 
-update-browserslist-db@^1.0.11:
+update-browserslist-db@^1.0.10, update-browserslist-db@^1.0.11:
   version "1.0.11"
   resolved "https://registry.yarnpkg.com/update-browserslist-db/-/update-browserslist-db-1.0.11.tgz#9a2a641ad2907ae7b3616506f4b977851db5b940"
   integrity sha512-dCwEFf0/oT85M1fHBg4F0jtLwJrutGoHSQXCh7u4o2t1drG+c0a9Flnqww6XUKSfQMPpJBRjU8d4RXB09qtvaA==
